@@ -356,3 +356,69 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 .news-item .news-apis {}
 
 
+/* 메인 페이지 레이아웃 */
+.main-banner {
+    width: 90vw;
+    padding-top: 80px;
+    margin: 0 5vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 2px solid #bbb;
+}
+
+/* 메인 배너 이미지 */
+.main-banner .main-banner-img {
+    width: 60vh ; height: 60vh;
+    background-image: url("Login/하트들고있는아코_\(designed\ by\ 박세리\,원혜림\).png");
+    background-size: cover;
+}
+
+/* 메인 배너 로그인 폼 */
+.main-banner .main-banner-login {
+    width: 75vh; height: 60vh;
+}
+
+.main-banner-login .banner-title {
+    margin: 30px 0;
+    font-size: 2em;
+}
+
+.main-banner-login .banner-desc {
+    font-size: 0.9em;
+    line-height: 25px;
+    padding-left: 5px;
+}
+
+.main-banner-login form {
+    margin-top: 50px;
+    position: relative;
+}
+
+.main-banner-login form .email-in {
+    width: 25vw;
+}
+
+.main-banner-login form .password-in {
+    width: 25vw;
+}
+
+.main-banner-login form button[type="submit"]{
+    width: 200px; height: 200px;
+    background-image: url('Login/기본형아코얼굴_\(designed\ by\ 박세리\,원혜림\).png');
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    background-size: cover;
+    position: absolute;
+    top: -60px; right: -70px;
+    cursor: pointer;
+}
+
+.main-banner-login form button[type="submit"] .button-title {
+    font-size: 2.3em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 150%);
+}
