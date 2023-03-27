@@ -1,0 +1,19 @@
+{
+  "name": "dev-akoletter",
+  "version": "1.0.0",
+  "description": "SNS형 카드 뉴스 서비스",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nojaewon/dev-akoletter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nojaewon/dev-akoletter/issues"
+  },
+  "homepage": "https://github.com/nojaewon/dev-akoletter#readme"
+}
