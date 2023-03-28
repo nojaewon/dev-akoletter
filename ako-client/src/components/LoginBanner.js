@@ -11,14 +11,14 @@ function LoginBanner(){
                     뉴스레터를 통해 하루 5분, 세상을 향해 표현해요!
                 </p>
                 <form>
-                    <input className="email-in" type="text" placeholder="akoletter@gmail.com" />
+                    <input className="email-in" type="text" placeholder="akoletter@gmail.com" /><br/>
                     <input className="password-in" type="password" placeholder="password" />
                     <button type="submit">
                         <span className="button-title pen-font">start</span>
                     </button>
                 </form>
-                <div class="account-help">
-                    <a href="#">sign in</a>
+                <div className="account-help">
+                    <a href="/member/join">sign in</a>
                     <a href="#">help</a>
                 </div>
             </div>

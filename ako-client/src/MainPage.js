@@ -1,4 +1,6 @@
 import './App.css';
+import './App768.css';
+import './App1440.css';
 
 
 import Header from "./components/Header.js";
@@ -14,7 +16,7 @@ function MainPage() {
       <BoardGrid />
       <Footer />
       <a href="#" className='edit-button'>
-        <span class="material-symbols-outlined ">edit_square</span>
+        <span className="material-symbols-outlined ">edit_square</span>
       </a>
     </div>
   );

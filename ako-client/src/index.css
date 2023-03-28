@@ -22,6 +22,10 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.App {
+    width: 100%;
+}
+
 a {
     text-decoration: none;
     color: #000;
@@ -67,13 +71,6 @@ a {
     top: 0;
     background-color: #fff;
     z-index: 1000;
-}
-
-.contents {
-    padding-top: 80px;
-    width: 100%;
-    height:600px;
-    clear: both;
 }
 
 .footer {

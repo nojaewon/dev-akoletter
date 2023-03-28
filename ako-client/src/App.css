@@ -1,5 +1,10 @@
 
 /* 헤더 스타일 */
+.header {
+    width: 100%;
+    position: relative;
+}
+
 .header .title {
     font-size: 3em;
     line-height: 80px;
@@ -11,9 +16,6 @@
 .header .nav-menu {
     list-style: none;
     display: flex;
-}
-
-.header .nav-menu > li {
 }
 
 .header .nav-menu > li a {
@@ -48,22 +50,32 @@
     text-align: center;
 }
 
+/* 헤더 햄버거 버튼 브라우저가 650이하인 경우 생성 */
+.hamburger {
+    background-color: rgba(0,0,0,0.2);
+    position: absolute;
+    top: 80px; right: 0;
+    width: 100%;
+    
+}
+
 /* 로그인 배너 */
 
 /* 메인 페이지 레이아웃 */
 .main-banner {
     width: 90vw;
-    padding-top: 80px;
-    margin: 0 5vw;
-    height: 80vh;
+    margin: 0 auto;
+    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 메인 배너 이미지 */
+/* 메인 배너 이미지 */ 
 .main-banner .main-banner-img {
-    width: 60vh ; height: 60vh;
+    width: 350px;
+    height: 350px;
+    margin-right: 5vh;
     background-image: url("../public/ako/하트들고있는아코_\(designed\ by\ 박세리\,원혜림\).png");
     background-size: cover;
 }
@@ -71,6 +83,7 @@
 /* 메인 배너 로그인 폼 */
 .main-banner .main-banner-login {
     width: 75vh; height: 60vh;
+    background: none;   
 }
 
 .main-banner-login .banner-title {
@@ -91,13 +104,13 @@
 
 .main-banner-login form .email-in {
     width: 250px;
-    padding: 3px;
+    padding: 7px;
     margin-bottom: 10px;
 }
 
 .main-banner-login form .password-in {
     width: 250px;
-    padding: 3px;
+    padding: 7px;
 }
 
 .main-banner-login form button[type="submit"]{
@@ -127,6 +140,7 @@
     display: block;
     width: 60px; line-height: 30px;
     color: #aaa;
+    cursor: pointer;
 }
 
 .main-banner-login .account-help a:hover {
@@ -174,6 +188,21 @@
     border: 1px solid black;
 }
 
+.board-container {
+    position: relative;
+    padding-top: 80px;
+}
+.board-container .board-controller-container{
+    border-top: 1px solid rgb(74, 130, 213);
+    border-bottom: 1px solid rgb(74, 130, 213);
+}
+
+.board-container .board-controller-container .board-controller {
+    width: 45%;
+    margin: 0 auto;
+    
+}
+
 .board .item {
     width: 200px; height: 250px;
     border: 1px solid black;
@@ -218,20 +247,6 @@
     bottom: 8px; right: 12px;
 }
 
-.board-container {
-    position: relative;
-}
-.board-container .board-controller-container{
-    border-top: 1px solid rgb(74, 130, 213);
-    border-bottom: 1px solid rgb(74, 130, 213);
-}
-
-.board-container .board-controller-container .board-controller {
-    width: 800px;
-    margin: 0 auto;
-    
-}
-
 .board-container .more {
     position:absolute;
     bottom: -35px; left: 50%;
@@ -240,4 +255,110 @@
     background: none;
     border: none;
     cursor: pointer;
+}
+
+/* 회원 가입 배너 */
+.contents {
+    width: 100%;
+    height:520px;
+    clear: both;
+}
+
+.contents .login-banner {
+    width: 50%;
+    height: 450px;
+    float: left;
+    overflow: hidden;
+}
+
+.contents .login-banner .login-banner-desc {
+    width: 100%;
+    position: absolute;
+    bottom: 60px; left: 100px;
+}
+
+.contents .login-banner .login-banner-desc p {
+    font-size: 2em;
+    line-height: 1.4em;
+    margin-left: 35px;
+}
+
+/* 배너 이미지 */
+.banner-images {
+    width: 100%;
+    position: relative;
+}
+
+.banner-images .login-banner-aco {
+    width: 350px;
+    height: 370px;
+    position: relative;
+    top: 70px;
+}
+
+.banner-images .login-banner-aco-ask {
+    width: 240px;
+    position: absolute;
+    top: 20%; left: 50%;
+}
+
+.contents .login-container {
+    width: 50%;
+    height: 450px;
+    float: left;
+    position: relative;
+    top: -80px;
+}
+
+/* 로그인 배너 */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.btn { display: inline-block; *display: inline; *zoom: 1; padding: 4px 10px 4px; margin-bottom: 0; font-size: 13px; line-height: 18px; color: #333333; text-align: center;text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); vertical-align: middle; background-color: #f5f5f5; background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6); background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6)); background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); background-image: -o-linear-gradient(top, #ffffff, #e6e6e6); background-image: linear-gradient(top, #ffffff, #e6e6e6); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#ffffff, endColorstr=#e6e6e6, GradientType=0); border-color: #e6e6e6 #e6e6e6 #e6e6e6; border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25); border: 1px solid #e6e6e6; -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05); cursor: pointer; *margin-left: .3em; }
+.btn:hover, .btn:active, .btn.active, .btn.disabled, .btn[disabled] { background-color: #e6e6e6; }
+.btn-large { padding: 9px 14px; font-size: 15px; line-height: normal; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+.btn:hover { color: #333333; text-decoration: none; background-color: #e6e6e6; background-position: 0 -15px; -webkit-transition: background-position 0.1s linear; -moz-transition: background-position 0.1s linear; -ms-transition: background-position 0.1s linear; -o-transition: background-position 0.1s linear; transition: background-position 0.1s linear; }
+.btn-primary, .btn-primary:hover { text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); color: #ffffff; }
+.btn-primary.active { color: rgba(255, 255, 255, 0.75); }
+.btn-primary { background-color: #4a77d4; background-image: -moz-linear-gradient(top, #6eb6de, #4a77d4); background-image: -ms-linear-gradient(top, #6eb6de, #4a77d4); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6eb6de), to(#4a77d4)); background-image: -webkit-linear-gradient(top, #6eb6de, #4a77d4); background-image: -o-linear-gradient(top, #6eb6de, #4a77d4); background-image: linear-gradient(top, #6eb6de, #4a77d4); background-repeat: repeat-x; filter: progid:dximagetransform.microsoft.gradient(startColorstr=#6eb6de, endColorstr=#4a77d4, GradientType=0);  border: 1px solid #3762bc; text-shadow: 1px 1px 1px rgba(0,0,0,0.4); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.5); }
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] { filter: none; background-color: #4a77d4; }
+.btn-block { width: 100%; display:block; }
+
+.login { 
+	position: absolute;
+	top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+	width:350px;
+	height:300px;
+}
+.login h1 { 
+    text-align:center;
+    margin-bottom: 12px;
+
+}
+
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+.login .login-links {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1em;
 }

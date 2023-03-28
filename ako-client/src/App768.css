@@ -1,0 +1,64 @@
+@media screen and (max-width: 810px) and (min-width: 375px) {
+    .header .title {
+        font-size: 2.3em;
+    }
+    /* 메인 배너 */
+    .main-banner {
+        height: 75vh;
+    }
+
+    /* 메인 배너 이미지 */
+    .main-banner .main-banner-img {
+        width: 40% ; height: 45vh;
+        background-image: url("../public/ako/빼꼼아코_\(designed\ by\ 원혜림\).png");
+        background-size: cover;
+    }
+
+    /* 메인 배너 로그인 폼 */
+    .main-banner .main-banner-login {
+        width: 60%; height: 50vh;
+        margin-left: 10px;
+    }
+
+    .main-banner-login .banner-title {
+        margin: 5px 0;
+        font-size: 1.5em;
+    }
+    
+    .main-banner-login .banner-desc {
+        font-size: 0.7em;
+        line-height: 25px;
+        padding-left: 5px;
+    }
+    
+    .main-banner-login form {
+        margin-top: 40px;
+        position: relative;
+    }
+    
+    .main-banner-login form .email-in {
+        width: 250px;
+        padding: 3px;
+        margin-bottom: 10px;
+    }
+    
+    .main-banner-login form .password-in {
+        width: 250px;
+        padding: 3px;
+    }
+    
+    .main-banner-login form button[type="submit"]{
+        width: 130px; height: 130px;
+        background-image: url('../public/ako/기본형아코얼굴_\(designed\ by\ 박세리\,원혜림\).png');
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        background-size: cover;
+        position: absolute;
+        top: 50%; right: 50%;
+        transform: translate(250px, -65%);
+        cursor: pointer;
+    }
+
+    
+    
+}

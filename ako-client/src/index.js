@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import './index.css';
 import MainPage from './MainPage.js';
+import SignInPage from './SignInPage.js';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainPage />
+  },
+  {
+    path: '/member/join',
+    element: <SignInPage></SignInPage>
   }
 ])
 
