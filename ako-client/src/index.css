@@ -1,13 +1,82 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 펜 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+/* 구글 마테리얼 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* 폰트 초기화 */
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    width: 100%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+/* 펜 폰트 */
+.pen-font{
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+/* 레이아웃 */
+
+.container {
+    width: 100%;
+}
+
+.edit-button {
+    display: block;
+    width: 60px; height: 60px;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    z-index: 1000;
+}
+
+.edit-button:hover {
+    color: rgb(249, 73, 73);
+}
+
+.edit-button span {
+    position: absolute;
+    top: 50%; left: 50%;
+    font-size: 30px;
+    transform: translate(-50%, -50%);
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+.contents {
+    padding-top: 80px;
+    width: 100%;
+    height:600px;
+    clear: both;
+}
+
+.footer {
+    width: 100%;
+    height: 120px;
 }

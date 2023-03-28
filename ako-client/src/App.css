@@ -1,38 +1,243 @@
-.App {
-  text-align: center;
+
+/* 헤더 스타일 */
+.header .title {
+    font-size: 3em;
+    line-height: 80px;
+    width: 30vw;
+    padding-left: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 네비게이션 메뉴바 */
+.header .nav-menu {
+    list-style: none;
+    display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header .nav-menu > li {
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header .nav-menu > li a {
+    display: block;
+    padding: 0 20px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.header .nav-menu > li a:hover {
+    background: rgba(0,0,0,.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 기능 메뉴바(프로필 포함) */
+.header .func-menu {
+    display: flex;
+    list-style: none;
+    position: absolute;
+    top: 0; right: 0;
+}
+
+.header .func-menu > li a:hover {
+    background: rgba(0,0,0,.2);
+}
+
+.header .func-menu > li a {
+    display: block;
+    padding: 0 20px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+}
+
+/* 로그인 배너 */
+
+/* 메인 페이지 레이아웃 */
+.main-banner {
+    width: 90vw;
+    padding-top: 80px;
+    margin: 0 5vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 메인 배너 이미지 */
+.main-banner .main-banner-img {
+    width: 60vh ; height: 60vh;
+    background-image: url("../public/ako/하트들고있는아코_\(designed\ by\ 박세리\,원혜림\).png");
+    background-size: cover;
+}
+
+/* 메인 배너 로그인 폼 */
+.main-banner .main-banner-login {
+    width: 75vh; height: 60vh;
+}
+
+.main-banner-login .banner-title {
+    margin: 30px 0;
+    font-size: 2em;
+}
+
+.main-banner-login .banner-desc {
+    font-size: 0.9em;
+    line-height: 25px;
+    padding-left: 5px;
+}
+
+.main-banner-login form {
+    margin-top: 50px;
+    position: relative;
+}
+
+.main-banner-login form .email-in {
+    width: 250px;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.main-banner-login form .password-in {
+    width: 250px;
+    padding: 3px;
+}
+
+.main-banner-login form button[type="submit"]{
+    width: 200px; height: 200px;
+    background-image: url('../public/ako/기본형아코얼굴_\(designed\ by\ 박세리\,원혜림\).png');
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    background-size: cover;
+    position: absolute;
+    top: -60px; right: -70px;
+    cursor: pointer;
+}
+
+.main-banner-login form button[type="submit"] .button-title {
+    font-size: 2.3em;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 150%);
+}
+
+.main-banner-login .account-help {
+    width: 230px;
+    display: flex;
+}
+
+.main-banner-login .account-help a {
+    display: block;
+    width: 60px; line-height: 30px;
+    color: #aaa;
+}
+
+.main-banner-login .account-help a:hover {
+    color: #000;
+}
+
+
+/* 푸터 */
+
+.footer .footer-links {
+    width: 80vw;
+    font-size: .7em;
+    text-align: center;
+    margin: 20px auto 0 auto;
+}
+
+.footer .footer-logos {
+    width: 90vw;
+    margin: 8px auto 0 auto;
+}
+
+.footer .footer-logos img {
+    width: 18px;
+}
+
+.footer .footer-info {
+   width: 90vw;
+   font-size: .7em;
+   margin: 0 auto; 
+}
+
+.footer .footer-info .footer-info-version{
+    text-align: right;
+    padding-bottom: 8px;
+}
+
+
+/* 그리드 게시글 */
+.board {
+    width: 600px;
+    margin: 20px auto 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(2, 250px);
+    border: 1px solid black;
+}
+
+.board .item {
+    width: 200px; height: 250px;
+    border: 1px solid black;
+    
+}
+
+.board .item .item-banner {
+    width: 200px; height: 200px;
+    border-bottom: 1.5px solid black;
+    overflow: hidden;
+    position: relative;
+}
+
+.board .item .item-banner img {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.board .item .item-info {
+    position: relative;
+    width: 200px; height: 50px;
+}
+
+.board .item .item-info .item-title {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 9px ;
+}
+
+.board .item .item-info .item-date {
+    font-size: 0.5em;
+    position: absolute;
+    bottom: 8px; left: 12px;
+}
+.board .item .item-info .item-cartegory {
+    position: absolute;
+    font-size: 0.5em;
+    bottom: 8px; right: 12px;
+}
+
+.board-container {
+    position: relative;
+}
+.board-container .board-controller-container{
+    border-top: 1px solid rgb(74, 130, 213);
+    border-bottom: 1px solid rgb(74, 130, 213);
+}
+
+.board-container .board-controller-container .board-controller {
+    width: 800px;
+    margin: 0 auto;
+    
+}
+
+.board-container .more {
+    position:absolute;
+    bottom: -35px; left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
