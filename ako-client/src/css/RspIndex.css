@@ -1,0 +1,49 @@
+/* 펜 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+/* 구글 마테리얼 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
+
+/* 초기화 */
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+
+    /* 폰트 초기화 */
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, div, span, a {
+    font-size: 1em;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+/* 기본 레이아웃들 */
+body {
+    width: 100%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    width: 100%;
+}
+
+/* header 포지셔닝 - fixed 때문에 위에 패딩 */
+.header-padding {
+    padding-top: 90px;
+}
+
+/* 폰트 스타일 */
+.pen {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.noto-sans {
+    font-family: 'Noto Sans KR', sans-serif;
+}

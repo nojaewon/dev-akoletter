@@ -1,6 +1,8 @@
+import '../css/RspFooter.css';
+
 function Footer(){
     return (
-        <div className="footer">
+        <footer>
             <hr style={{marginRight: "0 20px 10px 20px"}}  />
             <p className="footer-links">&copy;2023 All Rights Reserved.
                 <a href="#">동국대학교 </a> | 
@@ -24,7 +26,7 @@ function Footer(){
                 <p>이 서비스는 동국대학교 4학년 과목 캡스톤 디자인1의 졸업 작품입니다.</p>
                 <p className="footer-info-version">version: 1.0.0v</p>
             </div>
-        </div>
+        </footer>
     );
 }
 

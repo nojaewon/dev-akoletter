@@ -2,28 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+// 페이지 가져오기
+import RspMain from './pages/RspMain.js';
+import RspBoard from './pages/RspBoard.js';
 
-import './index.css';
-import MainPage from './MainPage.js';
-import SignInPage from './SignInPage.js';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainPage />
+    element: <RspMain />
   },
   {
-    path: '/member/join',
-    element: <SignInPage></SignInPage>
+    path: '/detail',
+    element: <RspBoard />
   }
 ])
 
+// react.stricMode를 쓰면 렌더링이 2번씩 됨
 root.render(
-  <React.StrictMode>
-    <RouterProvider router={router}/>
-  </React.StrictMode>
+  <RouterProvider router={router}/>
 );
 
 // If you want to start measuring performance in your app, pass a function

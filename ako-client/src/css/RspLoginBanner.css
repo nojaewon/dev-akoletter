@@ -1,0 +1,44 @@
+.login-banner {
+    width: 100%;
+}
+
+.login-banner .box {
+    width: 80%; height: 450px;
+    margin: 0 auto;
+
+    /* flex box attr */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.login-banner .box h2 { width: 100%; height: 50px; line-height: 50px; text-align: center; font-size: 1.8em; border-bottom: 1.5px inset #ddd;}
+.login-banner .box form { width: 50%; height: 400px; }
+
+/* 배너 이미지 */
+.login-banner .box .banner-img { width: 50%; height: 400px; position: relative; }
+.login-banner .box .banner-img img { width: 370px; height: 370px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}
+
+/* 배너 폼 -> (로그인/회원가입) */
+
+/* 로그인 섹션 */
+.login-container { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center;}
+.login-container .banner-desc { width: 80%; margin: 20px auto 10px auto; font-size: 0.8em;}
+.login-container input { width: 80%; height: 25px; padding: 10px; margin: 8px 10%; font-size: 0.7em;}
+.login-container button { 
+    cursor: pointer;
+    width: 80%;
+    margin: 8px 10%;
+    font-size: 0.8em;
+    padding: 3px;
+}
+.login-container a { margin: 5px 10%; font-size: 0.6em; }
+
+
+/* 로그인 배너 [너비 <= 870] */
+@media screen and (max-width: 870px) {
+    .login-banner .box { height: 850px; }
+    .login-banner .box .banner-img { width: 100%; order: 1;}
+    .login-banner .box h2 { order: 2; }
+    .login-banner .box form { order: 3; width: 70%;}
+}

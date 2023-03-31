@@ -1,0 +1,62 @@
+/* 헤더(기본)[870 < 너비] */
+header {
+    --height: 70px;
+
+    --icon-width: 60px;
+    --nav-block-width: 200px;
+    --small-nav-block-height: 40px;
+    
+    /* nav의 width * nav 개수 */
+    --nav-height: 80px;
+
+    width: 100%;
+    border-bottom: 1.5px inset #bbb;
+
+    /* 포지셔닝 */
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+    background-color: #fff;
+}
+
+header .box {
+    width: 100%;
+    margin: 0 auto;
+    
+    /* position */
+    position: relative;
+
+    /* flex box */
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+header .box .title { width: 40%; height: var(--height); margin-left: 15px;}
+header .box .title a { display: block; height: var(--height); line-height: var(--height); font-size: 2.5em}
+header .box .links { width: 45%; display: flex; }
+header .box .links a { display: block; height: var(--height);  line-height: var(--height); width: var(--nav-block-width); text-align: center; font-size: 1em}
+
+header .box .functions { width: 15%; height: var(--height); display: flex; justify-content: right;}
+header .box .functions a { position: relative; display: block; line-height: var(--height); width: var(--icon-width); text-align: center;}
+header .box .functions a > span:first-child    {
+    position: absolute;
+    top: 50%; left: 50%;
+    font-size: 30px;
+    transform: translate(-50%, -40%);
+}
+
+#hamburger { display: none; }
+
+/* 헤더 [너비 <= 870] */
+@media screen and (max-width: 870px) {
+    header .box { flex-direction: column; }
+    header .box .title { width: 100%; }
+    header .box .links { width: 100%; flex-direction: column; overflow: hidden; height: 0; transition: height 0.8s;}
+    header .box .links a { width: 100%; height: var(--small-nav-block-height); line-height: var(--small-nav-block-height); font-size: 0.9em;}
+    header .box .functions { position: absolute; top: 0; right: 10px;}
+    
+    #hamburger { display: block; }
+}

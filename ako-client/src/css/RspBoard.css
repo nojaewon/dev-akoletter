@@ -1,0 +1,23 @@
+/* 카드 뉴스를 볼 수 있는 게시글 페이지 */
+.board {
+    --cardnews-width : 350px;
+    --cardnews-height: 400px;
+
+    width: 100%;
+}
+.board .header { padding: 10px; }
+.board .header .category { text-align: center;}
+.board .header .category a { text-decoration: underline; text-underline-offset: 2px; font-size: 0.6em; font-weight: bold;}
+
+.board .title { text-align: center; font-size: 1.6em;}
+.board .date { text-align: center; margin-top: 15px;}
+.board .date time { font-size: 0.7em; }
+
+/* 카드 뉴스 페이지 */
+.board .box { width: 100%; height: 500px; display: flex; justify-content: center; align-items: center; position: relative;}
+.board .cardnews-container { width: var(--cardnews-width); height: var(--cardnews-height); border: 1.5px solid #333;}
+
+
+/* 카드 뉴스 원문 */
+.board .cardnews-original-text { width: 100%; }
+.board .cardnews-original-text p { width: 70%; margin: 30px auto; font-size: 1em; line-height: 25px;}

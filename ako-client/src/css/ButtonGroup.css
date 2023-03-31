@@ -1,0 +1,31 @@
+.btn-group-container {
+    /* 변경 시 react buttonGroup의 상수도 변경해야함 */
+    --btn-width : 75px;
+
+    width: 80%;
+    margin: 5px auto;
+    overflow-x: scroll;
+}
+
+.btn-group-container::-webkit-scrollbar {height: 4px; }
+.btn-group-container::-webkit-scrollbar-thumb { background-color: #aaa; border-radius: 5px;}
+.btn-group-container::-webkit-scrollbar-track {background-color: #ddd; border-radius: 5px;}
+
+.btn-group {
+    height: 35px;
+    margin: 0 auto;
+}
+
+.btn-group button.b {
+    width: var(--btn-width);
+    font-size: 0.7em;
+    padding: 3px 0;
+    background: none;
+    border: none;
+}
+
+.btn-group button.b:hover {
+    font-weight: bold;
+    text-decoration: underline;
+}
+

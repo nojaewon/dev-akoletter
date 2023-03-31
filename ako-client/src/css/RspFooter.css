@@ -1,0 +1,33 @@
+/* 푸터 */
+
+footer .footer-links {
+    width: 80vw;
+    font-size: .7em;
+    text-align: center;
+    margin: 20px auto 0 auto;
+}
+
+footer .footer-logos {
+    width: 90vw;
+    margin: 8px auto 0 auto;
+}
+
+footer .footer-logos img {
+    width: 18px;
+}
+
+footer .footer-info {
+   width: 90vw;
+   font-size: .7em;
+   margin: 0 auto; 
+}
+
+footer .footer-info .footer-info-version{
+    text-align: right;
+    padding-bottom: 8px;
+}
+
+/* 푸터 [너비 <= 870] */
+@media screen and (max-width: 870px) {
+    
+}
