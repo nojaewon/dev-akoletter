@@ -15,9 +15,33 @@
 
 /* 카드 뉴스 페이지 */
 .board .box { width: 100%; height: 500px; display: flex; justify-content: center; align-items: center; position: relative;}
-.board .cardnews-container { width: var(--cardnews-width); height: var(--cardnews-height); border: 1.5px solid #333;}
+.board .cardnews-container { 
+    width: var(--cardnews-width);
+    height: var(--cardnews-height);
+    border: 1.5px solid #333;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
 
+.cardnews-display { clear: both; height: 100%; position: absolute; top: 0; left: 0; display: flex; transition: left 1s;}
+.cardnews-display .cardnews { width: var(--cardnews-width); height: 100%;}
+
+/* 임시 */
+.red {background-color: red;}
+.green {background-color: green;}
+.blue {background-color: blue;}
+
+/* 카드뉴스 페이지 컨트롤러 */
+.board .box button.move { position: absolute; border: none; background: none; padding: 20px; cursor: pointer;}
+.board .box button.back { top: 42.5%; left: 50%; transform: translateX(calc(-0.7 * var(--cardnews-width)));}
+.board .box button.forward { top: 42.5%; right: 50%; transform: translateX(calc(0.7 * var(--cardnews-width))) rotate(180deg);}
 
 /* 카드 뉴스 원문 */
 .board .cardnews-original-text { width: 100%; }
 .board .cardnews-original-text p { width: 70%; margin: 30px auto; font-size: 1em; line-height: 25px;}
+
+/* 화면 [너비 <= 500px] */
+@media screen and (max-width:500px) {
+    .board .box button.move { display: none; }
+}
