@@ -1,0 +1,47 @@
+{
+    "signup_success" : {
+        "state": 200,
+        "result": "success",
+        "message": "회원가입에 성공했습니다.",
+        "data": {
+            "success": "true"
+        },
+        "error": []
+    },
+    "signup_existed_fail": {
+        "state": 400,
+        "result": "fail",
+        "message": "이미 존재하는 계정 정보입니다.",
+        "data": [],
+        "error": []
+    },
+    "login_success": {
+        "state": 200,
+        "result": "success",
+        "message": "로그인에 성공했습니다.",
+        "data": {
+            "usrId": "abcde`",
+            "usrNm": "아코",
+            "usrEmail": "abcdeas@sample.com",
+            "usrTelNo": "01012345678",
+            "roles": [
+                {
+                    "seqNo": 1,
+                    "useYn": "Y",
+                    "frstRgstId": null,
+                    "frstRgstDt": "2023-03-31T00:50:29.160577",
+                    "lastMdfyId": null,
+                    "lastMdfyDt": "2023-03-31T00:50:29.160604",
+                    "name": "ROLE_USER",
+                    "usrId": "abcde`"
+                }
+            ],
+            "token": {
+                "access_token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkZWAiLCJyb2xlcyI6W10sImlhdCI6MTY4MDE5MTQ2OSwiZXhwIjoxNjgwMTk1MDY5fQ.Ja2l0P_LbLysr7G5075TIfZUdbHeXirXnYPui3a_8wA",
+                "refresh_token": "b39ca6ac-e928-40de-a4e4-de60bdb1a488",
+                "expiration_ms": 1209600000
+            }
+        },
+        "error": []
+    }
+}

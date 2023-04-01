@@ -34,12 +34,12 @@ header .box {
 
 }
 
-header .box .title { width: 40%; height: var(--height); margin-left: 15px;}
+header .box .title { width: 35%; height: var(--height); margin-left: 15px;}
 header .box .title a { display: block; height: var(--height); line-height: var(--height); font-size: 2.5em}
 header .box .links { width: 45%; display: flex; }
 header .box .links a { display: block; height: var(--height);  line-height: var(--height); width: var(--nav-block-width); text-align: center; font-size: 1em}
 
-header .box .functions { width: 15%; height: var(--height); display: flex; justify-content: right;}
+header .box .functions { width: 20%; height: var(--height); display: flex; justify-content: right;}
 header .box .functions a { position: relative; display: block; line-height: var(--height); width: var(--icon-width); text-align: center;}
 header .box .functions a > span:first-child    {
     position: absolute;
