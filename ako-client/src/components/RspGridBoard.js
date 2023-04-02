@@ -1,5 +1,6 @@
 import ButtonGroup from "./ButtonGroup.js";
 import '../css/RspGridBoard.css'
+import { Link } from "react-router-dom";
 
 function RspGridBoard(prop){
     // props.row
@@ -16,7 +17,7 @@ function RspGridBoard(prop){
         <section className="grid-board">
             <ButtonGroup target={CARTEOGRY}/>
             <div className="box">
-                <a href="/detail" className="card">
+                <Link to="/detail" className="card">
                     <figure>
                         <img src="https://d2phebdq64jyfk.cloudfront.net/media/image/article/thumbnail/%EB%8B%A8%EC%8B%A0_1_OxF40gz.jpg" alt="temp" />
                     </figure>
@@ -25,12 +26,15 @@ function RspGridBoard(prop){
                         <time className="card-date">2023/03/30</time>
                         <i className="card-category">정치</i>
                     </div>
-                </a>
-                <a className="card"></a>
-                <a className="card"></a>
-                <a className="card"></a>
-                <a className="card"></a>
-                <a className="card"></a>
+                </Link>
+                <Link className="card"></Link>
+                <Link className="card"></Link>
+                <Link className="card"></Link>
+                <Link className="card"></Link>
+                <Link className="card"></Link>
+                <Link className="card"></Link>
+                <Link className="card"></Link>
+
             </div>
         </section>
     );

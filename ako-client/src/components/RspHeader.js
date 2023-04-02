@@ -3,14 +3,54 @@ import '../css/RspHeader.css'
 import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Space} from 'antd';
 
+import { Link } from 'react-router-dom'
+
 // React Hook
 import { useState, useEffect, useRef } from "react";
+import { useSelector } from 'react-redux'
+
+// components
+import ProfileAvatar from './Avatar.js';
+
 
 const navHeight = 80;
 
 function RspHeader(){
     const hamburgerButton = useRef();
     const nav = useRef();
+
+    const { usrNm } = useSelector(state => ({
+        usrNm: state.login.usrNm
+    }));
+
+    console.log(usrNm);
+
+    // 로그인 시 프로필 변경
+    const profile = ()=>{
+        if(usrNm == null){
+            return (
+                <Link href="#">
+                    <Space size={16}>
+                            <Avatar size={"defalut"} icon={<UserOutlined />} />				
+                    </Space>
+                </Link>
+            );
+        } else {
+            return <ProfileAvatar
+                name={usrNm}
+                btnType={-1}
+                labeled={false}
+            />
+        }
+
+        return (
+            <Link href="#">
+                <Space size={16}>
+                        <Avatar size={"defalut"} icon={<UserOutlined />} />				
+                </Space>
+            </Link>
+        );
+    }
 
     let navOut = false;
 
@@ -28,23 +68,19 @@ function RspHeader(){
     return (
         <header>
             <div className="box">
-                <h1 className="title"><a className='pen' href="/">AKO Letter</a></h1>
+                <h1 className="title"><Link className='pen' to="/">AKO Letter</Link></h1>
                 <nav className='links' ref={nav}>
-                    <a href="#">Editor Of This Weekend</a>
-                    <a href="#">Q&A</a>
+                    <Link to="#">Editor Of This Weekend</Link>
+                    <Link to="#">Q&A</Link>
                 </nav>
                 <nav className='functions'>
-                    <a href="#">
+                    <Link href="#" className='search'>
                         <span className="material-symbols-outlined">search</span>
-                    </a>
-                    <a href="#">
-                        <Space size={16}>
-                                <Avatar size={"defalut"} icon={<UserOutlined />} />				
-                        </Space>
-                    </a>
-                    <a href="#" ref={hamburgerButton} id="hamburger">
+                    </Link>
+                    {profile()}
+                    <Link href="#" ref={hamburgerButton} id="hamburger">
                         <span className="material-symbols-outlined">menu</span>
-                    </a>
+                    </Link>
                 </nav>
             </div>
         </header>

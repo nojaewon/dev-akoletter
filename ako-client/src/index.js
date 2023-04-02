@@ -36,6 +36,7 @@ const router = createBrowserRouter([
   }
 ])
 
+
 // react.stricMode를 쓰면 렌더링이 2번씩 됨
 root.render(
   <Provider store={store}>

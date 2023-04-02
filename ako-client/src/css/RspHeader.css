@@ -52,11 +52,13 @@ header .box .functions a > span:first-child    {
 
 /* 헤더 [너비 <= 870] */
 @media screen and (max-width: 870px) {
+
     header .box { flex-direction: column; }
     header .box .title { width: 100%; }
     header .box .links { width: 100%; flex-direction: column; overflow: hidden; height: 0; transition: height 0.8s;}
     header .box .links a { width: 100%; height: var(--small-nav-block-height); line-height: var(--small-nav-block-height); font-size: 0.9em;}
     header .box .functions { position: absolute; top: 0; right: 10px;}
-    
+    header .box .functions .search { display: none; }
+
     #hamburger { display: block; }
 }

@@ -1,8 +1,12 @@
 import '../css/RspBoard.css';
 
+// components
 import RspHeader from "../components/RspHeader.js";
-import Avatar from "../components/Avatar.js"
+import ProfileAvatar from "../components/Avatar.js"
 import Footer from "../components/Footer.js";
+
+// react
+
 
 // 함수 가져오기
 import { useEffect, useRef } from 'react';
@@ -12,6 +16,8 @@ import { dragX } from '../commonJS/event.js';
 const CARD_WIDTH = 350;
 const CARD_COUNT = 3;
 const DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
+
+const editorName = "늙코";
 
 function RspBoard(){
     const cardDisplay = useRef();
@@ -49,7 +55,11 @@ function RspBoard(){
         <div className="container">
             <RspHeader />
             <div className="header-padding">
-                <Avatar />
+                <ProfileAvatar
+                    name={editorName}
+                    labeled={true}
+                    btnType={0}
+                />
             </div>
             <section className="board">
                 <div className="header">

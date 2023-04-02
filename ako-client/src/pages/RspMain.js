@@ -9,9 +9,6 @@ import Footer from '../components/Footer.js';
 import api from '../commonJS/api.js'
 
 function RspMain(){
-
-    api.getLoginToken();
-
     return (
         <div className="container">
             <RspHeader />
