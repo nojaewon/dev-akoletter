@@ -1,4 +1,3 @@
-import { UserOutlined } from '@ant-design/icons';
 import { Avatar, Space } from 'antd';
 
 import '../css/Avatar.css';
