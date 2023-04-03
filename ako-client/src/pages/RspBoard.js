@@ -64,7 +64,7 @@ function RspBoard(){
             <section className="board">
                 <div className="header">
                     <p className="category"><a href="#">환경</a></p>
-                    <h2 className="title">어린이 대공원 얼룩말 탈출과 동물원</h2>
+                    <h2 className="title">3월 최고 기온 달성, 이른 벚꽃</h2>
                     <p className="date"><time>2023/03/31</time></p>
                 </div>
                 <div className="box">
@@ -75,9 +75,15 @@ function RspBoard(){
                         {/* 카드뉴스가 보이는 창구 */}
                         <div className='cardnews-display' ref={cardDisplay}>
                             {/* 카드뉴스가 움직이는 부분 */}
-                            <div className="cardnews red"></div>
-                            <div className="cardnews green"></div>
-                            <div className="cardnews blue"></div>
+                            <div className="cardnews">
+                                <img src={`${process.env.PUBLIC_URL}/img/cardnews1.png`} alt="1" />
+                            </div>
+                            <div className="cardnews">
+                                <img src={`${process.env.PUBLIC_URL}/img/cardnews2.png`} alt="2" />
+                            </div>
+                            <div className="cardnews">
+                                <img src={`${process.env.PUBLIC_URL}/img/cardnews3.png`} alt="3" />
+                            </div>
                         </div>
                     </div>
                 </div>

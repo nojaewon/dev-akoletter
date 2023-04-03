@@ -3,7 +3,7 @@ import { Button, Space } from 'antd';
 
 // react modules
 import { useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // import action func
@@ -13,12 +13,7 @@ import { setLogin } from '../store/modules/Login.js';
 import api from '../commonJS/api.js';
 
 function RspLoginBanner(){
-    const { token, usrId, usrNm } = useSelector(state => ({
-        token: state.login.token,
-        usrId: state.login.usrId,
-        usrNm: state.login.usrNm
-    }));
-    
+
     // dom refs
     const input_id = useRef();
     const input_pw = useRef();
@@ -37,7 +32,6 @@ function RspLoginBanner(){
         })
     }
 
-    
 
     return(
         <section className="login-banner header-padding">
@@ -58,10 +52,9 @@ function RspLoginBanner(){
                         <Space wrap className='login-btn'>
                             <Button onClick={loginRequest}>시작하기</Button>
                         </Space>
-                        <Link href="#">회원가입</Link>
-                        <Link href="#">계정을 모르시나요?</Link>
+                        <Link to="/signup">회원가입</Link>
+                        <Link to="#">계정을 모르시나요?</Link>
                     </div>
-                    
                 </form>
 
             </div>

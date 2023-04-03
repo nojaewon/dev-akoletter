@@ -25,12 +25,9 @@
 }
 
 .cardnews-display { clear: both; height: 100%; position: absolute; top: 0; left: 0; display: flex; transition: left 1s;}
-.cardnews-display .cardnews { width: var(--cardnews-width); height: 100%;}
+.cardnews-display .cardnews { width: var(--cardnews-width); height: 100%; position: relative; overflow: hidden;}
+.cardnews-display .cardnews img{ height: 100%; position: absolute; left: 50%; transform: translateX(-50%);}
 
-/* 임시 */
-.red {background-color: red;}
-.green {background-color: green;}
-.blue {background-color: blue;}
 
 /* 카드뉴스 페이지 컨트롤러 */
 .board .box button.move { position: absolute; border: none; background: none; padding: 20px; cursor: pointer;}

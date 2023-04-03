@@ -23,8 +23,6 @@ function RspHeader(){
         usrNm: state.login.usrNm
     }));
 
-    console.log(usrNm);
-
     // 로그인 시 프로필 변경
     const profile = ()=>{
         if(usrNm == null){

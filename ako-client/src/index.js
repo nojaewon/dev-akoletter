@@ -16,6 +16,7 @@ import { composeWithDevTools } from '@redux-devtools/extension'
 // 페이지 가져오기
 import RspMain from './pages/RspMain.js';
 import RspBoard from './pages/RspBoard.js';
+import RspSignUp from './pages/RspSignUp.js';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/detail',
     element: <RspBoard />
+  },
+  {
+    path: '/signup',
+    element: <RspSignUp />
   }
 ])
 
