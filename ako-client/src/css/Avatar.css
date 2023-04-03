@@ -1,11 +1,9 @@
 .profile {
-    --profile-width : 200px;
-    --icon-height: 45px;
+    --icon-size: 45px;
 
-    width: var(--profile-width);
     height: 70px;
-
     padding-left: 15px;
+    padding-right: 15px;
 
     display: flex;
     align-items: center;
@@ -13,17 +11,13 @@
 }
 
 .profile .avatar-container {
-    padding: 10px;
-
     border: 1.5px solid #bbb;
     border-radius: 50%;
 
-    width: 45px; height: 45px;
+    width: var(--icon-size); height: var(--icon-size);
 
     /* 상하좌우 정렬을 위한 스타일   */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
 .profile h5 { font-size: 1.4em; padding-left: 15px;}

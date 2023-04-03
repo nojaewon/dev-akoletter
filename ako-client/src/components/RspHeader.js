@@ -27,27 +27,23 @@ function RspHeader(){
     const profile = ()=>{
         if(usrNm == null){
             return (
-                <Link href="#">
+                <Link to="/signup">
                     <Space size={16}>
                             <Avatar size={"defalut"} icon={<UserOutlined />} />				
                     </Space>
                 </Link>
             );
         } else {
-            return <ProfileAvatar
-                name={usrNm}
-                btnType={-1}
-                labeled={false}
-            />
+            // link는 내 프로필로 들어가는 URL을 넣어야 함.
+            return(
+                <ProfileAvatar
+                    name={usrNm}
+                    btnType={-1}
+                    labeled={false}
+                    link={"/"}
+                />
+            );
         }
-
-        return (
-            <Link href="#">
-                <Space size={16}>
-                        <Avatar size={"defalut"} icon={<UserOutlined />} />				
-                </Space>
-            </Link>
-        );
     }
 
     let navOut = false;

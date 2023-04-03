@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 import { Avatar, Space } from 'antd';
 
 import '../css/Avatar.css';
@@ -5,7 +7,7 @@ import '../css/Avatar.css';
 const url = `${process.env.PUBLIC_URL}/ako/기본형아코얼굴_(designed by 박세리,원혜림).png`;
 const url2 =  `${process.env.PUBLIC_URL}/ako/하트들고있는아코_(designed by 박세리,원혜림).png`;
 
-function ProfileAvatar({name, imgSrc, btnType, labeled}){
+function ProfileAvatar({name, imgSrc, btnType, labeled, href}){
   const userImagePath = url2;
 
   // {{ props 정보 }}
@@ -16,11 +18,11 @@ function ProfileAvatar({name, imgSrc, btnType, labeled}){
   
   return (
     <div className="profile">
-      <div className="avatar-container">
-        <Space size={40} wrap>
-          <Avatar size={"large"} src={<img src={userImagePath} alt={`${name}님의 프로필`} />} />
+      <Link className="avatar-container" style={{display: 'block', width: 45, height: 45}}>
+        <Space size={40} wrap style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -52%)'}}>
+            <Avatar size={"large"} src={<img src={userImagePath} alt={`${name}님의 프로필`} />} />
         </Space>
-      </div>
+      </Link>
       { labeled ? <h5 className='pen'>{name} 님</h5> : ""}
       { btnType === -1? "" : <button className='pen'>{btnLabel[btnType]}</button>}
     </div>

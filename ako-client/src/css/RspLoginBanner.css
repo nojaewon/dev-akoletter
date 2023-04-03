@@ -28,6 +28,8 @@
 .login-container .banner-desc { width: 80%; margin: 20px auto 10px auto; font-size: 0.8em;}
 .login-container input { width: 80%; height: 25px; padding: 10px; margin: 8px 10%; font-size: 0.7em;}
 .login-container a { margin: 5px 10%; font-size: 0.6em; }
+.login-container a:hover { text-decoration: underline; text-underline-offset: 1.5px; }
+
 .login-container .login-btn { 
     cursor: pointer;
     width: 80%;
