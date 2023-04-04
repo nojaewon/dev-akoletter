@@ -9,7 +9,6 @@
     /* flex box attr */
     display: flex;
     justify-content: center;
-    align-content: start;
     flex-wrap: wrap;
 }
 
