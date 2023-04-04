@@ -18,12 +18,12 @@ npm install
 //cd ako-client
 npm start
 ```
-3. JSON-SERVER를 실행한다.
+3. JSON-SERVER를 실행한다.(서버를 열 경우 필요 없음)
 ```
 // 새 터미널을 열어서 실행
 // cd ako-client
 cd json-server
-json-server db.json --watch --port 4000
+json-server --routes routes.json --port 8080 --watch db.json
 ```
 4. 프로젝트를 확인한다.
 

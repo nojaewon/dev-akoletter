@@ -1,5 +1,5 @@
 {
-  "signup_success": {
+  "join": {
     "state": 200,
     "result": "success",
     "message": "회원가입에 성공했습니다.",
@@ -8,14 +8,8 @@
     },
     "error": []
   },
-  "signup_existed_fail": {
-    "state": 400,
-    "result": "fail",
-    "message": "이미 존재하는 계정 정보입니다.",
-    "data": [],
-    "error": []
-  },
-  "login_success": {
+
+  "login": {
     "state": 200,
     "result": "success",
     "message": "로그인에 성공했습니다.",
