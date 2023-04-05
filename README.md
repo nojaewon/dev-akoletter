@@ -19,7 +19,9 @@ npm install
 npm start
 ```
 3. JSON-SERVER를 실행한다.(서버를 열 경우 필요 없음)
-json-server가 실행이 되지 않을 시, json-server를 global로 설치해야 동작 함.
+
+
+    json-server가 실행이 되지 않을 시, json-server를 global로 설치해야 동작 함.
 ```
 // 새 터미널을 열어서 실행
 // cd ako-client
