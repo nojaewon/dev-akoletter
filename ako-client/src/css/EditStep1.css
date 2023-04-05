@@ -1,7 +1,19 @@
 .edit-step-1 {
-    width: 100%; height: 800px;
+    width: 100%;
 }
 
 .edit-step-1 .box {
-    
+    width: 80%; margin: 20px 10%;
 }
+
+.edit-step-1 .box h2 {font-size: 1.2em; padding-bottom: 20px; margin-bottom: 30px;}
+
+.edit-step-1 .box .guideline-link {
+    cursor: pointer;
+}
+
+.edit-step-1 .box .guideline-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+

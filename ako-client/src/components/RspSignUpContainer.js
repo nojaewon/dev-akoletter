@@ -18,7 +18,6 @@ import {
     Select,
     Drawer
 } from 'antd';
-import { UnderlineOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -72,10 +71,6 @@ function RspSignUpContainer(){
     const [open, setOpen] = useState(false);
     
     // 드로워 실행/종료 함수
-    const showDrawer = () => {
-        setOpen(true);
-    };
-    
     const onClose = () => {
         setOpen(false);
     };

@@ -1,26 +1,18 @@
+// antd
 import { Breadcrumb } from 'antd';
 
-function BreadcrumbContainr({separator}){
+// style
+import '../css/BreadCrumbContainer.css';
 
+
+function BreadcrumbContainr({links}){
     return (
-        <Breadcrumb
-        items={[
-        {
-            title: 'Home',
-        },
-        {
-            title: 'Application Center',
-            href: '',
-        },
-        {
-            title: 'Application List',
-            href: '',
-        },
-        {
-            title: 'An Application',
-        },
-        ]}
-    />
+        <nav className='header-padding breadcrumb'>
+            <Breadcrumb
+                separator=">"
+                items={links}
+            />
+        </nav>
     );
 }
 
