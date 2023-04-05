@@ -16,7 +16,9 @@ import {
     Form,
     Input,
     Select,
+    Drawer
 } from 'antd';
+import { UnderlineOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -65,7 +67,18 @@ const USRFORM = {
 function RspSignUpContainer(){
     const navigate = useNavigate();
     const [form] = Form.useForm();
+
     const [isContinueModal, setIsContinueModal] = useState(false);
+    const [open, setOpen] = useState(false);
+    
+    // 드로워 실행/종료 함수
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    
+    const onClose = () => {
+        setOpen(false);
+    };
     
     // 폼 제출 시 실행 함수
     const onFinish = (values) => {
@@ -92,6 +105,13 @@ function RspSignUpContainer(){
 
     return (
         <div className='sign-container header-padding'>
+            {/* 이용 약관 드로워 */}
+            <Drawer title="개인정보 수집&middot;이용 동의" placement="right" onClose={onClose} width={"50vw"} open={open}>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+                <p>Some contents...</p>
+            </Drawer>
+
             <h2>회원가입</h2>
             <Form
                 {...formItemLayout}
@@ -204,7 +224,7 @@ function RspSignUpContainer(){
                     style={{ width: '100%',}}
                     />
                 </Form.Item>
-                    
+
                 <Form.Item
                     name="agreement"
                     valuePropName="checked"
@@ -217,7 +237,10 @@ function RspSignUpContainer(){
                     {...tailFormItemLayout}
                 >
                     <Checkbox>
-                    위 개인정보를 수집&middot;이용하는 것에 동의합니다.
+                    위 개인정보의 <a href="#" style={{fontWeight: "bold"}} onClick={(e)=>{
+                        e.preventDefault();
+                        setOpen(true);
+                    }}>수집&middot;이용 약관 </a>에 동의합니다. 
                     </Checkbox>
                 </Form.Item>
                 <Form.Item {...tailFormItemLayout}>
