@@ -21,8 +21,8 @@ function EditLink(){
                 <Tooltip
                 title="카드뉴스 만들기"
             >
-                <Link to="#">
-                    <span class="material-symbols-outlined">new_window</span>
+                <Link to="/edit">
+                    <span className="material-symbols-outlined">new_window</span>
                 </Link>
             </Tooltip>
             }

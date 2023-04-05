@@ -17,12 +17,12 @@ import { composeWithDevTools } from '@redux-devtools/extension'
 import RspMain from './pages/RspMain.js';
 import RspBoard from './pages/RspBoard.js';
 import RspSignUp from './pages/RspSignUp.js';
+import RspEdit from './pages/RspEdit.js';
 
 import reportWebVitals from './reportWebVitals';
 
 // 스토어 생성 및 출력
 const store = createStore(rootReducer, composeWithDevTools());
-// console.log(store.getState());
 
 // 리엑트 돔 생성 및 라우팅
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -41,6 +41,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/edit',
+    element: <RspEdit />
   }
 ])
 
