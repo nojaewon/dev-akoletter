@@ -2,17 +2,13 @@
     width: 100%;
 }
 
-.edit-step-1 .box {
-    width: 80%; margin: 20px 10%;
-}
+.edit-step-1 h2 {font-size: 1.2em; padding-bottom: 20px; margin-bottom: 30px;}
 
-.edit-step-1 .box h2 {font-size: 1.2em; padding-bottom: 20px; margin-bottom: 30px;}
-
-.edit-step-1 .box .guideline-link {
+.edit-step-1 .guideline-link {
     cursor: pointer;
 }
 
-.edit-step-1 .box .guideline-link:hover {
+.edit-step-1 .guideline-link:hover {
     text-decoration: underline;
     text-underline-offset: 2px;
 }
