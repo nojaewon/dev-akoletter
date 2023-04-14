@@ -1,8 +1,6 @@
 import { LoadingOutlined, SmileOutlined, SolutionOutlined, UserOutlined } from '@ant-design/icons';
 import { Steps } from 'antd';
 
-import { useEffect, useRef } from 'react';
-
 function StepsContainer(){
 
     return (

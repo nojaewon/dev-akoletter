@@ -46,7 +46,7 @@ function EditStep1(){
     };
 
     return (
-        <section className="edit-step-1">
+        <section className="edit-step-box edit-step-1">
             {/* 가이드라인 드로워 */}
             <Drawer title="아코레터의 뉴스 기사 요약 서비스란?" placement="right" onClose={onClose} width={"50vw"} open={open}>
                 <p>Some contents...</p>

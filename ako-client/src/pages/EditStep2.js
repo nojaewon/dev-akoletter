@@ -1,7 +1,7 @@
 function EditStep2(){
 
     return (
-        <section className="edit-step-2">
+        <section className="edit-step-box edit-step-2">
             
 
         </section>

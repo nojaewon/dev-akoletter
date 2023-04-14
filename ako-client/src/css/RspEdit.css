@@ -4,11 +4,11 @@
     justify-content: space-around;
 }
 .rsp-edit > .box .steps-container { width: 30%;border-right: 1.5px solid #bbb;padding-right: 20px;}
-.rsp-edit > .box .edit-step-1 {width: 60%;}
+.rsp-edit > .box .edit-step-box {width: 60%;}
 
 @media screen and (max-width: 975px) {
     .rsp-edit >.box {justify-content: start;}
     .rsp-edit >.box .steps-container {padding-left: 10%; width: 80%; border: none;}
-    .rsp-edit >.box .edit-step-1 { margin-top: 20px; padding-left: 10%; width: 80%;}
+    .rsp-edit >.box .edit-step-box { margin-top: 20px; padding-left: 10%; width: 80%;}
 }
 
