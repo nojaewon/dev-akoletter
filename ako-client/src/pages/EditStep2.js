@@ -1,3 +1,6 @@
+// style
+import '../css/EditStep2.css';
+
 function EditStep2(){
 
     return (

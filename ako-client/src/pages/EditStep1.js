@@ -29,13 +29,14 @@ const validateMessages = {
     required: '${label} is required!',
 };
 
-function EditStep1(){
+function EditStep1(props){
 
     const [url, setUrl] = useState([]);
 
 
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
+        props.setStage(1);
         console.log(values);
     };
 
