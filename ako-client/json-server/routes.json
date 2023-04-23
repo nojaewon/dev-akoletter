@@ -3,5 +3,7 @@
     "/member/login": "/login",
     "/member/reissue": "/reissue",
     "/member/logout": "/logout",
-    "/member/delete": "/delte"
+    "/member/delete": "/delte",
+    "/post/postlist" : "/posts"
+    
 }
