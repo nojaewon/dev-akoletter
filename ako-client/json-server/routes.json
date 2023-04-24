@@ -4,6 +4,6 @@
     "/member/reissue": "/reissue",
     "/member/logout": "/logout",
     "/member/delete": "/delte",
-    "/post/postlist" : "/posts"
-    
+    "/post/postlist" : "/posts",
+    "/editor/summary" : "/summary"
 }

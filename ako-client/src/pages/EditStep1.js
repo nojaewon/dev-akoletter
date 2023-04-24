@@ -5,6 +5,8 @@ import '../css/EditStep1.css';
 import { Button, Form, Input, Select, List, Drawer } from 'antd';
 import React, { useState } from 'react';
 
+// api
+import api from '../commonJS/api.js';
 
 const layout = {
     labelCol: {
@@ -36,9 +38,13 @@ function EditStep1(props){
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
 
-        values.url = url; 
+        values.url = url;
+        api.requestSummaryContent(values).then((data)=>{
+            console.log(data.data);
+            props.setScript(data.data.summary);
+        })
         props.setStage(1);
-        console.log(values);
+        
     };
 
     // 가이드라인 드로워 스테이트 && 함수
@@ -68,7 +74,7 @@ function EditStep1(props){
                     validateMessages={validateMessages}
             >
                 <Form.Item
-                    name="name"
+                    name="title"
                     label="제목"
                     rules={[
                         {
@@ -80,7 +86,7 @@ function EditStep1(props){
                 </Form.Item>
                 
                 <Form.Item 
-                    name="article"
+                    name="content"
                     label="뉴스"
                     rules={[
                         {
@@ -115,7 +121,7 @@ function EditStep1(props){
                 
                 <Form.Item label="URL" style={{ marginBottom: 0 }}>
                     <Form.Item
-                        name="url"
+                        name="references"
                         style={{display:'inline-block', width: 'calc(60% - 8px)'}}
                     >
                         <Input value={urlValue} onChange={(e)=>{

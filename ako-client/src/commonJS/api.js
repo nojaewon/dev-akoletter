@@ -41,13 +41,26 @@ const api = {
 
 
         // json-server를 사용할 시에 axios.post로 요청을 보내면 db.json data를 잃는 이슈
-        // const accToken = await axios.post(login_success_url, {
-            const result = await axios.get(signup_request_url, formData)
-                .then((response)=>{
-                    return response.data
-                })
-            
-            return result;
+        // const accToken = await axios.post(login_request_url, {
+        const result = await axios.get(signup_request_url, formData)
+            .then((response)=>{
+                return response.data
+            })
+        
+        return result;
+    },
+
+    requestSummaryContent: async (formData)=>{
+        // 원문 요약 api로 요약 정보 불러오기
+        const summary_request_url = `${URL}/editor/summary`;
+        // json-server를 사용할 시에 axios.post로 요청을 보내면 db.json data를 잃는 이슈
+        // const result = await axios.post(summary_request_url, formData)
+        const result = await axios.get(summary_request_url, formData)
+            .then((response)=>{
+                return response.data
+            })
+        
+        return result;
     }
 
 

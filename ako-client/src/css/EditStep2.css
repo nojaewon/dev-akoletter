@@ -1,6 +1,28 @@
 .edit-step-2 {
-    width: 100%; height: 500px;
+    width: 100%; height: 600px;
 
     --cardnews-width : 350px;
     --cardnews-height: 400px;
+
+    position: relative;
+}
+
+.tool-taps {
+    width: 35vw; height: 100%;
+    padding: 10px;
+    background-color: #fff;
+
+    position: absolute;
+    top: 0; left: -35vw;
+    
+}
+
+.scene {
+    width: 60vw; height: 100%;
+    background-color: #eee;
+}
+
+@media screen and (max-width: 975px) {
+    .tool-taps { padding-left: 10vw; width: 90vw; height: 265px; top: -285px; left : 0; }
+    .scene { width: 90vw; }
 }
