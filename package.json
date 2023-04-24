@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/nojaewon/dev-akoletter/issues"
   },
-  "homepage": "https://github.com/nojaewon/dev-akoletter#readme"
+  "homepage": "https://github.com/nojaewon/dev-akoletter#readme",
+  "proxy" : "http://localhost:8080"
 }
