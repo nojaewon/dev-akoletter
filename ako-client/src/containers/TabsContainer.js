@@ -1,7 +1,8 @@
-import { Radio, Tabs } from 'antd';
-import { useState } from 'react';
+import { Tabs } from 'antd';
+import { useEffect, useState } from 'react';
 
-function TabsContainer({script}){  
+function TabsContainer({summary, title, content}){
+
   return (
     <div className='tool-taps'>
       <Tabs
@@ -10,12 +11,22 @@ function TabsContainer({script}){
         style={{
           marginBottom: 32,
         }}
-        tabPosition='left'
+        tabPosition={ document.body.clientWidth >= 975  ? "left" : "top"}
         items={[
           {
             label: `Script`,
             key: 0,
-            children: script,
+            children: <div>
+              <h2>요약</h2> 
+              <p>
+                {summary}
+              </p>
+              <br /> 
+              <h2>{title}</h2>
+              <p>
+              {content}
+              </p>
+            </div>,
           },
           {
             label: `Element`,
@@ -26,6 +37,16 @@ function TabsContainer({script}){
             label: `Text`,
             key: 2,
             children: `Content of tab3`,
+          },
+          {
+            label: `Images`,
+            key: 3,
+            children: `Content of tab4`,
+          },
+          {
+            label: `Uploads`,
+            key: 4,
+            children: `Content of tab5`,
           },
         ]}
       />

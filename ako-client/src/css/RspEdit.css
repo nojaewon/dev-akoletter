@@ -3,12 +3,16 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.rsp-edit > .box .steps-container { width: 30%;border-right: 1.5px solid #bbb;padding-right: 20px;}
+.rsp-edit > .box .steps-container { width: 30%; border-right: 1.5px solid #bbb;padding-right: 20px; overflow-y: scroll;}
 .rsp-edit > .box .edit-step-box {width: 60%;}
+
+.rsp-edit >.box .steps-container::-webkit-scrollbar { width: 4px; }
+.rsp-edit >.box .steps-container::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 5px;}
+.rsp-edit >.box .steps-container::-webkit-scrollbar-track { border-radius: 5px;}
 
 @media screen and (max-width: 975px) {
     .rsp-edit >.box {justify-content: start;}
-    .rsp-edit >.box .steps-container {padding-left: 10%; width: 90%; border: none; height: 265px; overflow: scroll;}
+    .rsp-edit >.box .steps-container {padding-left: 10%; width: 90%; border: none; height: 270px;}
     .rsp-edit >.box .edit-step-box { margin-top: 20px; padding-left: 10%; width: 90%; }
 }
 

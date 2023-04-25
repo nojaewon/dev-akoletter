@@ -41,7 +41,9 @@ function EditStep1(props){
         values.url = url;
         api.requestSummaryContent(values).then((data)=>{
             console.log(data.data);
-            props.setScript(data.data.summary);
+            props.setScript[0](data.data.summary);
+            props.setScript[1](data.data.original.title);
+            props.setScript[2](data.data.original.content);
         })
         props.setStage(1);
         

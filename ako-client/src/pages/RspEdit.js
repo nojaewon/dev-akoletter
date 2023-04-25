@@ -17,15 +17,17 @@ import { useState } from 'react';
 
 function RspEdit(){
     const [stage, setStage] = useState(0);
-    const [script, setScript] = useState("");
-
+    const [summary, setSummary] = useState("");
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+    
     return (
         <div className="container rsp-edit">
             <RspHeader />
             <div className='box header-padding'>
                 <StepsContainer stage={stage} />
-                {stage === 0 && <EditStep1 setStage={setStage} setScript={setScript} />}
-                {stage === 1 && <EditStep2 setStage={setStage} script={script}/>}
+                {stage === 0 && <EditStep1 setStage={setStage} setScript={[setSummary, setTitle, setContent]} />}
+                {stage === 1 && <EditStep2 setStage={setStage} summary={summary} title={title} content={content}/>}
             </div>
             <Footer />
         </div>

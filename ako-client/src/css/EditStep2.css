@@ -9,20 +9,40 @@
 
 .tool-taps {
     width: 35vw; height: 100%;
-    padding: 10px;
+    padding-right: 20px;
     background-color: #fff;
 
     position: absolute;
-    top: 0; left: -35vw;
-    
+    top: 0; left: -37vw;
+
+    overflow-y: scroll;
 }
 
-.scene {
-    width: 60vw; height: 100%;
-    background-color: #eee;
-}
+.tool-taps::-webkit-scrollbar { display: none; }
+
+.scene { width: 60vw; height: 100%; display:flex; flex-direction: column; align-items: center; justify-content: space-around;}
+
+/* 레이어 컨트롤러 */
+.scene .layer-controller { width: var(--cardnews-width); height: 60px; background-color: #ddd; border-radius: 5px; display: flex; justify-content: space-between;}
+.layer-controller .page-order { line-height: 60px; padding: 0 10px; font-weight: bold;}
+.layer-controller .btn { width: 50px;  border: none; background: none; cursor: pointer; }
+
+/* 레이어 컨테이너 */
+.scene .layer-container { width: calc(var(--cardnews-width) + 50px); }
+
+/* 레이어 추가 버튼 */
+.scene .layer-add-button {width: var(--cardnews-width); height: 50px; background-color: #ccc; cursor: pointer; font-size: 1em; font-weight: bold; border-radius: 5px;}
+
+/* 레이어 뷰어 */
+.scene .layer-viewer { width: var(--cardnews-width); height: 35px; }
+
+/* 레이어 */
+.layer-container .layer { width: var(--cardnews-width); height: var(--cardnews-height); margin: 0 auto; box-shadow: 1px 1px 3px #888; }
+
+
 
 @media screen and (max-width: 975px) {
     .tool-taps { padding-left: 10vw; width: 90vw; height: 265px; top: -285px; left : 0; }
     .scene { width: 90vw; }
 }
+
