@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.rsp-edit > .box .steps-container { width: 30%; border-right: 1.5px solid #bbb;padding-right: 20px; overflow-y: scroll;}
+.rsp-edit > .box .steps-container { width: 30%; border-right: 1.5px solid #bbb;padding-right: 20px  ; overflow-y: scroll;}
 .rsp-edit > .box .edit-step-box {width: 60%;}
 
 .rsp-edit >.box .steps-container::-webkit-scrollbar { width: 4px; }

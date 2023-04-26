@@ -29,6 +29,17 @@ export default class App {
         draggable: true,
       });
 
+      var box2 = new Konva.Rect({
+        x: rectX-50,
+        y: rectY-70,
+        width: 100,
+        height: 50,
+        fill: 'red',
+        stroke: 'black',
+        strokeWidth: 4,
+        draggable: true,
+      });
+
       // add cursor styling
       box.on('mouseover', function () {
         document.body.style.cursor = 'pointer';
@@ -37,7 +48,15 @@ export default class App {
         document.body.style.cursor = 'default';
       });
 
+      box2.on('mouseover', function () {
+        document.body.style.cursor = 'pointer';
+      });
+      box2.on('mouseout', function () {
+        document.body.style.cursor = 'default';
+      });
+
       layer.add(box);
+      layer.add(box2);
       stage.add(layer);
     }
 }
