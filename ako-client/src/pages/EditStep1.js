@@ -34,6 +34,7 @@ const validateMessages = {
 function EditStep1(props){
     const [urlValue, setUrlValue] = useState("");
     const [url, setUrl] = useState([]);
+    const [form] = Form.useForm();
 
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
@@ -71,7 +72,8 @@ function EditStep1(props){
             <Form
                 {...layout}
                     onFinish={onFinish}
-                    fields={[{name: 'url', value: urlValue}]}
+                    form={form}
+                    fields={[{name: 'references', value: urlValue}]}
                     style={{maxWidth: 900,}}
                     validateMessages={validateMessages}
             >
@@ -136,7 +138,8 @@ function EditStep1(props){
                     >
                     <Button type="default" onClick={()=>{
                         setUrl([...url, urlValue]);
-                        setUrlValue("")
+                        setUrlValue("");
+                        form.setFieldValue("references", "");
                     }}>Submit</Button>
                     </Form.Item>
                 </Form.Item>
