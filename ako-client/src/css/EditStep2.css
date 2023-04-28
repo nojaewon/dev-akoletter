@@ -4,6 +4,8 @@
     --cardnews-width : 350px;
     --cardnews-height: 400px;
 
+    overflow-y: hidden;
+
     position: relative;
 }
 

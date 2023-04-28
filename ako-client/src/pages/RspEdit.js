@@ -1,6 +1,7 @@
 //components
 import RspHeader from '../components/RspHeader.js';
 import Footer from '../components/Footer.js';
+import Editor from '../components/Editor.js';
 
 // containers
 import StepsContainer from '../containers/StepContainer.js';
@@ -25,9 +26,11 @@ function RspEdit(){
         <div className="container rsp-edit">
             <RspHeader />
             <div className='box header-padding'>
-                <StepsContainer stage={stage} />
+                {stage === 0 && <StepsContainer stage={stage} />}
                 {stage === 0 && <EditStep1 setStage={setStage} setScript={[setSummary, setTitle, setContent]} />}
-                {stage === 1 && <EditStep2 setStage={setStage} summary={summary} title={title} content={content}/>}
+                {/* {stage === 1 && <EditStep2 setStage={setStage} summary={summary} title={title} content={content}/>} */}
+                {stage === 1 && <Editor />}
+
             </div>
             <Footer />
         </div>

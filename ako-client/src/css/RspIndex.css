@@ -3,6 +3,11 @@
 /* 구글 마테리얼 폰트 */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
+/* (Polotno) Css style from CDN */
+@import url(https://unpkg.com/@blueprintjs/icons@4/lib/css/blueprint-icons.css);
+@import url(https://unpkg.com/@blueprintjs/core@4/lib/css/blueprint.css);
+@import url(https://unpkg.com/@blueprintjs/popover2@1/lib/css/blueprint-popover2.css);
+
 /* 초기화 */
 * {
     margin: 0; padding: 0;
@@ -16,8 +21,8 @@ h1, h2, h3, h4, h5, h6, p, div, span, a {
 }
 
 a {
-    color: black;
-    text-decoration: none;
+    color: black !important;
+    text-decoration: none !important;
 }
 
 /* 기본 레이아웃들 */
