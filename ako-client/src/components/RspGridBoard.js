@@ -1,6 +1,8 @@
 import ButtonGroup from "./ButtonGroup.js";
 import '../css/RspGridBoard.css'
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+
 
 function RspGridBoard(prop){
     // props.row
@@ -12,9 +14,12 @@ function RspGridBoard(prop){
     const URL = "";
     const CARTEOGRY = ['전체', '정치', '경제', '세계', '테크', '노동', '환경', '인권', '문화', '라이프'];
 
+    const { usrNm } = useSelector(state => ({
+        usrNm: state.login.usrNm
+    }));
 
     return (
-        <section className="grid-board">
+        <section className={`grid-board ${ usrNm && "header-padding"}`}>
             <ButtonGroup target={CARTEOGRY}/>
             <div className="box">
                 <Link to="/detail" className="card">
