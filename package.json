@@ -16,5 +16,5 @@
     "url": "https://github.com/nojaewon/dev-akoletter/issues"
   },
   "homepage": "https://github.com/nojaewon/dev-akoletter#readme",
-  "proxy" : "http://localhost:8080"
+  "proxy" : "https://dev-akoletter-api.herokuapp.com"
 }

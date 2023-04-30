@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom'
 
 // React Hook
 import { useState, useEffect, useRef } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+// import action func
+import { setLogin } from '../store/modules/Login.js';
 
 // components
 import ProfileAvatar from './Avatar.js';
@@ -15,13 +18,31 @@ import ProfileAvatar from './Avatar.js';
 
 const navHeight = 80;
 
+// 헤더는 세션관리를 할 수 있는 컴포넌트로 개발
+// 새로고침시 세션에 로그인 정보가 있다면 리덕스 스토어에 다시 넣어주는 역할
+
 function RspHeader(){
     const hamburgerButton = useRef();
     const nav = useRef();
 
+    // action dispatch
+    const dispatch = useDispatch();
+    const onLogin = (token, usrId, usrNm) => dispatch(setLogin(token, usrId, usrNm));
+
     const { usrNm } = useSelector(state => ({
         usrNm: state.login.usrNm
     }));
+
+    // 새로고침시에 로그인 정보 확인
+    useEffect(()=>{
+        const tk = sessionStorage.getItem('token')
+        const id = sessionStorage.getItem('usrId');
+        const nm = sessionStorage.getItem('usrNm');
+        console.log(tk, id, nm)
+        if (tk){
+            onLogin(tk, id, nm);
+        }
+    }, [])
 
     // 로그인 시 프로필 변경
     const profile = ()=>{
