@@ -4,8 +4,7 @@ const LOCAL = true;
 const URL = LOCAL ? "http://localhost:8080" : "https://dev-akoletter-api.herokuapp.com";
 
 const api = {
-    // 로그인 api
-    // { usrId, usrPwd } => { OUTPUT }
+    // 로그인 API
     requestLogin : async (id, pw)=>{
         const login_request_url = `${URL}/member/login`;
         let result;
@@ -13,7 +12,6 @@ const api = {
         if(LOCAL){
             result = await axios.get(login_request_url)
                 .then((response)=>{
-                    console.log(response)
                     const data = response.data.data;
         
                     return {
@@ -50,35 +48,50 @@ const api = {
     },
 
     requestSignUp: async (formData)=>{
-        // 회원가입 api
+        // 회원가입 API
         const signup_request_url = `${URL}/member/join`;
 
-
-        // json-server를 사용할 시에 axios.post로 요청을 보내면 db.json data를 잃는 이슈
-        const result = await axios.post(signup_request_url, formData)
-        // const result = await axios.get(signup_request_url, formData)
-            .then((response)=>{
-                return response.data
-            })
+        let result;
+        if(LOCAL){
+            result = await axios.get(signup_request_url).then(res=>res.data);
+        } else {
+            result = await axios.post(signup_request_url, formData).then(res=>res.data);
+        }
         
         return result;
     },
 
     requestSummaryContent: async (formData)=>{
-        // 원문 요약 api로 요약 정보 불러오기
+        // 원문 요약 API
         const summary_request_url = `${URL}/editor/summary`;
-        // json-server를 사용할 시에 axios.post로 요청을 보내면 db.json data를 잃는 이슈
-        const result = await axios.post(summary_request_url, formData)
-        // const result = await axios.get(summary_request_url, formData)
-            .then((response)=>{
-                return response.data
-            })
-        
+        let result;
+        if(LOCAL){
+            result = await axios.get(summary_request_url).then(res=>res.data);
+        } else {
+            result = await axios.post(summary_request_url, formData).then(res=>res.data);
+        }
+        return result;
+    },
+
+    getPostList: async()=>{
+        const postlist_request_url = `${URL}/post/postlist`;
+        const result = await axios.get(postlist_request_url).then(res=>res.data);
+        return result;
+    },
+
+    getPostDetail: async(id)=>{
+        const postdetail_request_url = `${URL}/post/postdetail/${id}`;
+        let result;
+        if(LOCAL){
+            result = await axios.get(postdetail_request_url).then(res=>res.data);
+        } else {
+            result = await axios.post(postdetail_request_url, {"id": id}).then(res=>res.data);
+        }
+
         return result;
     }
-
-
 };
+
 
 
 

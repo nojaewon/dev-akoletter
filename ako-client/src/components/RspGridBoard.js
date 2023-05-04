@@ -1,22 +1,45 @@
 import ButtonGroup from "./ButtonGroup.js";
 import '../css/RspGridBoard.css'
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+
+import api from '../commonJS/api.js';
 
 
 function RspGridBoard(prop){
+    const [contents, setContents] = useState([]);
     // props.row
     // props.col
-    // props.url
     
     const ROW = 1;
     const COL = 3;
-    const URL = "";
     const CARTEOGRY = ['전체', '정치', '경제', '세계', '테크', '노동', '환경', '인권', '문화', '라이프'];
 
     const { usrNm } = useSelector(state => ({
         usrNm: state.login.usrNm
     }));
+
+    useEffect(()=>{
+        api.getPostList()
+            .then(res=>setContents(res.data))
+    }, []);
+
+    const postlist = contents.map((post)=>{
+        return (
+            <Link key={post.postId} to="/" className="card">
+                <figure>
+                    <img src="https://sfs.synnara.co.kr/App/ImageViewerEShop?IID=EX000033546&FMT=2&ATTACH=EX&TYPE=1" alt="temp" />
+                </figure>
+                <div className="card-body">
+                    <h3>{post.postTitle}</h3>
+                    <time className="card-date">{post.frstRgstDt}</time>
+                    <i className="card-category">{post.unqUsrId}</i>
+                </div>
+            </Link>
+        )
+    })
 
     return (
         <section className={`grid-board ${ usrNm && "header-padding"}`}>
@@ -32,7 +55,7 @@ function RspGridBoard(prop){
                         <i className="card-category">정치</i>
                     </div>
                 </Link>
-                <Link className="card">
+                <Link to="/post/postdetail/1" className="card">
                 <figure>
                     <img src="https://sfs.synnara.co.kr/App/ImageViewerEShop?IID=EX000033546&FMT=2&ATTACH=EX&TYPE=1" alt="temp" />
                     </figure>
@@ -122,7 +145,8 @@ function RspGridBoard(prop){
                         <i className="card-category">스포츠</i>
                     </div>
                 </Link>
-                <Link className="card">
+                {postlist}
+                {/* <Link className="card">
                 <figure>
                     <img src="https://img0.yna.co.kr/photo/cms/2016/03/25/01/C0A8CA3D00000153AB78E9C80002A62F_P4.jpeg" alt="temp" />
                     </figure>
@@ -141,7 +165,7 @@ function RspGridBoard(prop){
                         <time className="card-date">2023/04/13</time>
                         <i className="card-category">정치</i>
                     </div>
-                </Link>
+                </Link> */}
                 
 
 

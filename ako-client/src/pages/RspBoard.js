@@ -6,11 +6,13 @@ import ProfileAvatar from "../components/Avatar.js"
 import Footer from "../components/Footer.js";
 
 // react
+import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 
 
 // 함수 가져오기
-import { useEffect, useRef } from 'react';
 import { dragX } from '../commonJS/event.js';
+import api from '../commonJS/api.js';
 
 
 const CARD_WIDTH = 350;
@@ -23,6 +25,9 @@ function RspBoard(){
     const cardDisplay = useRef();
     const cardBack = useRef();
     const cardForward = useRef();
+    // boardId를 가져오기 위한 객체 => ex) param.id
+    const boardId = useParams().id;
+    const [board, setBoard] = useState({});
     let left = 0;
 
     const moveBack = ()=>{
@@ -48,7 +53,11 @@ function RspBoard(){
         cardBack.current.addEventListener('click', moveBack);
         cardForward.current.addEventListener('click', moveForward);
         dragX(cardDisplay.current, moveForward, moveBack);
-
+        
+        api.getPostDetail(boardId).then((res)=>{
+            const detail = res.data;
+            console.log(detail);
+        })
     }, [])
 
     return (

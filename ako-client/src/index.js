@@ -36,6 +36,10 @@ const router = createBrowserRouter([
     element: <RspBoard />
   },
   {
+    path: '/post/postdetail/:id',
+    element: <RspBoard />
+  },
+  {
     path: '/signup',
     element: <RspSignUp />
   },
