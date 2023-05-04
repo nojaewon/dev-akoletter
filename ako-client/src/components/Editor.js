@@ -7,11 +7,12 @@ import { observer } from 'mobx-react-lite';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/popover2/lib/css/blueprint-popover2.css';
+import FaShapes from '@meronex/icons/fa/FaShapes';
 
 import { InputGroup } from '@blueprintjs/core';
 
 import { Workspace } from 'polotno/canvas/workspace';
-import { SidePanel } from 'polotno/side-panel';
+import { SidePanel, SectionTab } from 'polotno/side-panel';
 import { Toolbar } from 'polotno/toolbar/toolbar';
 import { ZoomButtons } from 'polotno/toolbar/zoom-buttons';
 import { createStore } from 'polotno/model/store';
@@ -46,40 +47,64 @@ store.activePage.addElement({
   fontSize: 50,
 });
 
-console.log(store.width)
-
-// define the new custom section
-const CustomSection = {
-  name: 'custom-text',
-  // we don't need "Tab" property, because it will be hidden from the list
-  visibleInList: false,
-  // we need observer to update component automatically on any store changes
-  Panel: observer(({ store }) => {
-    const text = store.selectedElements[0]?.text;
-    return (
-      <div>
-        <InputGroup
-          value={text}
-          onChange={(e) => {
-            store.selectedElements[0]?.set({ text: e.target.value });
-          }}
-        />
-      </div>
-    );
-  }),
-};
+export const Editor = ({title, summary, content}) => {
+  const CustomSection = {
+    name: 'custom-text',
+    // we don't need "Tab" property, because it will be hidden from the list
+    visibleInList: false,
+    // we need observer to update component automatically on any store changes
+    Panel: observer(({ store }) => {
+      const text = store.selectedElements[0]?.text;
+      return (
+        <div>
+          <InputGroup
+            value={text}
+            onChange={(e) => {
+              store.selectedElements[0]?.set({ text: e.target.value });
+            }}
+          />
+        </div>
+      );
+    }),
+  };
+  
+  const NewsSection = {
+    name: 'news-section',
+    Tab: (props) => (
+      <SectionTab name="News" {...props}>
+        <span className="material-symbols-outlined">
+        feed
+        </span>
+      </SectionTab>
+    ),
+  
+    Panel: observer(() => {
+      return (
+        <div>
+              <h2 style={{lineHeight: '25px'}}>요약</h2> 
+              <p>
+                {summary}
+              </p>
+              <br /> 
+              <h2 style={{lineHeight: '35px'}}>{title}</h2>
+              <p>
+              {content}
+              </p>
+            </div>
+      );
+    }),
+  };
 
 // add new section
-const sections = [...DEFAULT_SECTIONS, CustomSection];
+  const sections = [NewsSection, ...DEFAULT_SECTIONS.slice(0, 7), CustomSection];
 
-export const Editor = () => {
   React.useEffect(() => {
     return autorun(() => {
       const textSelected = store.selectedElements[0]?.type === 'text';
       if (textSelected) {
         store.openSidePanel('custom-text');
       } else {
-        store.openSidePanel('photos');
+        store.openSidePanel('news-section');
       }
     });
   }, []);
@@ -87,7 +112,7 @@ export const Editor = () => {
   return (
     <PolotnoContainer className="polotno-app-container" style={{width: '100%', height: '100%'}}>
       <SidePanelWrap style={{height: '600px'}}>
-        <SidePanel store={store} sections={sections} />
+        <SidePanel store={store} sections={sections}/>
       </SidePanelWrap>
       <WorkspaceWrap style={{width: '400px', height:'600px'}}>
         <Toolbar store={store} downloadButtonEnabled/>

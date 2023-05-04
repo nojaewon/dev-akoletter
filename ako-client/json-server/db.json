@@ -38,41 +38,82 @@
     },
     "error": []
   },
-  "posts":{
-
+"posts": {
     "state": 200,
     "result": "success",
     "message": "게시글을 불러오기 성공.",
     "data": [
-      {
-        "seqNo": null,
-        "useYn": null,
-        "frstRgstId": null,
-        "frstRgstDt": null,
-        "lastMdfyId": null,
-        "lastMdfyDt": null,
-        "postId": 1,
-        "postTitle": "example_Title",
-        "postContent": "hello",
-        "unqUsrId": 11,
-        "fileId": 1
-      },
-      {
-        "seqNo": null,
-        "useYn": null,
-        "frstRgstId": null,
-        "frstRgstDt": null,
-        "lastMdfyId": null,
-        "lastMdfyDt": null,
-        "postId": 2,
-        "postTitle": "example_Title",
-        "postContent": "hello",
-        "unqUsrId": 10,
-        "fileId": 2
-      }
+        {
+            "seqNo": null,
+            "useYn": null,
+            "frstRgstId": null,
+            "frstRgstDt": null,
+            "lastMdfyId": null,
+            "lastMdfyDt": null,
+            "postId": 1,
+            "postTitle": "example_Title",
+            "postContent": "hello",
+            "unqUsrId": 11,
+            "fileId": 1
+        },
+        {
+            "seqNo": null,
+            "useYn": null,
+            "frstRgstId": null,
+            "frstRgstDt": null,
+            "lastMdfyId": null,
+            "lastMdfyDt": null,
+            "postId": 2,
+            "postTitle": "example_Title",
+            "postContent": "hello",
+            "unqUsrId": 10,
+            "fileId": 2
+        }
     ],
     "error": []
   },
+  "post" : [
+    {
+      "id": 1,
+      "state": 200,
+      "result": "success",
+      "message": "상세 게시글 불러오기 성공.",
+      "data": {
+          "seqNo": null,
+          "useYn": null,
+          "frstRgstId": null,
+          "frstRgstDt": null,
+          "lastMdfyId": null,
+          "lastMdfyDt": null,
+          "postId": 1,
+          "postTitle": "example_Title",
+          "postContent": "hello",
+          "unqUsrId": 11,
+          "fileId": 1
+      },
+      "error": []
+    }, 
+    {
+      "id": 2,
+      "state": 200,
+      "result": "success",
+      "message": "상세 게시글 불러오기 성공.",
+      "data": {
+          "seqNo": null,
+          "useYn": null,
+          "frstRgstId": null,
+          "frstRgstDt": null,
+          "lastMdfyId": null,
+          "lastMdfyDt": null,
+          "postId": 2,
+          "postTitle": "example_Title",
+          "postContent": "hello",
+          "unqUsrId": 11,
+          "fileId": 1
+      },
+      "error": []
+    }
+  ],
   "summary" : {
   "state": 200,
   "result": "success",

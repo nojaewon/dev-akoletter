@@ -38,7 +38,7 @@ function RspHeader(){
         const tk = sessionStorage.getItem('token')
         const id = sessionStorage.getItem('usrId');
         const nm = sessionStorage.getItem('usrNm');
-        console.log(tk, id, nm)
+
         if (tk){
             onLogin(tk, id, nm);
         }
