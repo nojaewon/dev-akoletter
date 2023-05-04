@@ -3,7 +3,7 @@ import '../css/EditStep1.css';
 
 // antd
 import { Button, Form, Input, Select, List, Drawer } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 // api
 import api from '../commonJS/api.js';
@@ -35,6 +35,7 @@ function EditStep1(props){
     const [urlValue, setUrlValue] = useState("");
     const [url, setUrl] = useState([]);
     const [form] = Form.useForm();
+    const submitButton = useRef();
 
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
@@ -72,6 +73,11 @@ function EditStep1(props){
             <Form
                 {...layout}
                     onFinish={onFinish}
+                    onKeyDown={(e)=>{
+                        if(e.key === 'Enter'){
+                            submitButton.current.click();
+                        }
+                    }}
                     form={form}
                     fields={[{name: 'references', value: urlValue}]}
                     style={{maxWidth: 900,}}
@@ -168,7 +174,7 @@ function EditStep1(props){
                         },
                         }}
                 >
-                    <Button type="primary" htmlType="submit">
+                    <Button ref={submitButton} type="primary" htmlType="submit">
                         요약하기
                     </Button>
                 </Form.Item>
