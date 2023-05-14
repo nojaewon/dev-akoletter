@@ -10,14 +10,14 @@ header {
     --nav-height: 80px;
 
     width: 100%;
-    border-bottom: 1.5px inset #bbb;
+    border-bottom: 1.5px solid #243763;
 
     /* 포지셔닝 */
     position: fixed;
     top: 0;
     z-index: 1000;
 
-    background-color: #fff;
+    background-color: #243763;
 }
 
 header .box {
@@ -35,7 +35,7 @@ header .box {
 }
 
 header .box .title { width: 35%; height: var(--height); margin-left: 15px;}
-header .box .title a { display: block; height: var(--height); line-height: var(--height); font-size: 2.5em}
+header .box .title a { display: block; height: var(--height); line-height: var(--height); font-size: 2.5em; color: #fff !important;}
 header .box .links { width: 45%; display: flex; }
 header .box .links a { display: block; height: var(--height);  line-height: var(--height); width: var(--nav-block-width); text-align: center; font-size: 1em}
 

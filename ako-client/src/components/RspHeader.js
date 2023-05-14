@@ -85,12 +85,11 @@ function RspHeader(){
             <div className="box">
                 <h1 className="title"><Link className='pen' to="/">AKO Letter</Link></h1>
                 <nav className='links' ref={nav}>
-                    <Link to="#">Editor Of This Weekend</Link>
-                    <Link to="#">Q&A</Link>
+                    
                 </nav>
                 <nav className='functions'>
                     <Link href="#" className='search'>
-                        <span className="material-symbols-outlined">search</span>
+                        <span style={{color: '#fff'}} className="material-symbols-outlined">search</span>
                     </Link>
                     {profile()}
                     <Link href="#" ref={hamburgerButton} id="hamburger">

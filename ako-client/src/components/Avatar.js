@@ -18,7 +18,7 @@ function ProfileAvatar({name, imgSrc, btnType, labeled, href}){
   
   return (
     <div className="profile">
-      <Link className="avatar-container" style={{display: 'block', width: 45, height: 45}}>
+      <Link className="avatar-container" style={{display: 'block', width: 45, height: 45, backgroundColor: '#eee'}}>
         <Space size={40} wrap style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -52%)'}}>
             <Avatar size={"large"} src={<img src={userImagePath} alt={`${name}님의 프로필`} />} />
         </Space>
