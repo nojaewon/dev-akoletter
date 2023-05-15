@@ -43,7 +43,7 @@ function RspLoginBanner(){
             <div className="box">
                 <h2 className='pen'>세상 돌아가는 건 알고 살아야지 뿌우!🐘</h2>
                 <div className="banner-img">
-                    <img src={`${process.env.PUBLIC_URL}/ako/하트들고있는아코_(designed by 박세리,원혜림).png`} alt="하트 들고 있는 아코" />
+                    <img src={`${process.env.PUBLIC_URL}/ako/ako_love.png`} alt="하트 들고 있는 아코" />
                 </div>
                 <form>
                     <div className="login-container">

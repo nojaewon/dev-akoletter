@@ -4,8 +4,8 @@ import { Avatar, Space } from 'antd';
 
 import '../css/Avatar.css';
 
-const url = `${process.env.PUBLIC_URL}/ako/기본형아코얼굴_(designed by 박세리,원혜림).png`;
-const url2 =  `${process.env.PUBLIC_URL}/ako/하트들고있는아코_(designed by 박세리,원혜림).png`;
+const url = `${process.env.PUBLIC_URL}/ako/ako_face.png`;
+const url2 =  `${process.env.PUBLIC_URL}/ako/ako_love.png`;
 
 function ProfileAvatar({name, imgSrc, btnType, labeled, href}){
   const userImagePath = url2;
