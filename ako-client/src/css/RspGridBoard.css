@@ -21,7 +21,7 @@
 
 .grid-board .box .card {
     display: block;
-    height: 20vw;
+    height: 21vw;
     cursor: pointer;
 
     /* absolute 기준점 */
@@ -32,32 +32,32 @@
 }
 
 .grid-board .box .card figure { width: 100%; }
-.grid-board .box .card figure img {width: 100%;}
+.grid-board .box .card figure img { width: 100%;}
 
 .card .card-body { width: 100%; padding-top: 7px; padding-left: 15px; padding-right: 15px;}
 .card .card-body h3 { font-size: 1vw;}
 .card .card-body .card-date { font-size: 0.9em; position: absolute; bottom: 15px; left: 15px;}
-.card .card-body .card-category {font-size: 0.9em; position: absolute; bottom: 15px; right: 20px;}
+.card .card-body .card-category {font-size: 0.6em; position: absolute; bottom: 15px; right: 20px;}
 
 
 /* 그리드 [900 < 너비 <= 1360] */
 @media screen and (min-width: 901px) and (max-width: 1360px) {
     .grid-board .box { grid-template-columns: 1fr 1fr 1fr; }
-    .grid-board .box .card { height: 26vw; }
+    .grid-board .box .card { height: 29vw; }
     .card .card-body h3 { font-size: 1.3vw;}
 }
 
 /* 그리드 [700 < 너비 <= 900] */
 @media screen and (min-width: 701px) and (max-width: 900px) {
     .grid-board .box { grid-template-columns: 1fr 1fr; }
-    .grid-board .box .card { height: 40vw; }
+    .grid-board .box .card { height: 43vw; }
     .card .card-body h3 { font-size: 2vw;}
 }
 
 /* 그리드 [너비 <= 700] */
 @media screen and (max-width: 700px) {
     .grid-board .box { grid-template-columns: 1fr; }
-    .grid-board .box .card { height: 70vw;}
+    .grid-board .box .card { height: 79vw;}
     .card .card-body h3 { font-size: 3.4vw;}
 }
 

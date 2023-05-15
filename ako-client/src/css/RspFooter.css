@@ -10,10 +10,13 @@ footer .footer-links {
 footer .footer-logos {
     width: 90vw;
     margin: 8px auto 0 auto;
+    text-align: center;
+    line-height: 25px;
 }
 
 footer .footer-logos img {
     width: 18px;
+    margin-right: 5px;
 }
 
 footer .footer-info {
@@ -24,7 +27,11 @@ footer .footer-info {
 
 footer .footer-info .footer-info-version{
     text-align: right;
-    padding-bottom: 8px;
+    padding-bottom: 1px;
+}
+
+footer .footer-info p {
+    text-align: center;
 }
 
 /* 푸터 [너비 <= 870] */

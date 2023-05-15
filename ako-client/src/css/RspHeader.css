@@ -49,6 +49,7 @@ header .box .functions a > span:first-child    {
 }
 
 #hamburger { display: none; }
+#hamburger span { color: #fff; }
 
 /* 헤더 [너비 <= 870] */
 @media screen and (max-width: 870px) {
@@ -60,5 +61,5 @@ header .box .functions a > span:first-child    {
     header .box .functions { position: absolute; top: 0; right: 10px;}
     header .box .functions .search { display: none; }
 
-    #hamburger { display: block; }
+    #hamburger { display: block;}
 }

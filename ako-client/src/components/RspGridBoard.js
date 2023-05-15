@@ -30,7 +30,7 @@ function RspGridBoard(prop){
         return (
             <Link key={post.postId} to="/" className="card">
                 <figure>
-                    <img src="https://sfs.synnara.co.kr/App/ImageViewerEShop?IID=EX000033546&FMT=2&ATTACH=EX&TYPE=1" alt="temp" />
+                    <img src={`${process.env.PUBLIC_URL}/img/polono_cardnews.png`} alt="temp" />
                 </figure>
                 <div className="card-body">
                     <h3>{post.postTitle}</h3>

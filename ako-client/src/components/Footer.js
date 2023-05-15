@@ -21,10 +21,10 @@ function Footer(){
             </p>
             <div className="footer-info">
                 <p>서버 및 인프라 : 임현준(2018112), 박시현(2018112)</p>
-                <p>AI 및 API : 정이건(2020112)</p>
-                <p>디자인 및 프론트 : 노재원(2018112098)</p>
+                <p>프론트 및 API : 정이건(2020112)</p>
+                <p>UI 디자인 및 프론트 : 노재원(2018112098)</p>
                 <p>이 서비스는 동국대학교 4학년 과목 캡스톤 디자인1의 졸업 작품입니다.</p>
-                <p className="footer-info-version">version: 1.0.0v</p>
+                <p className="footer-info-version">version: 1.0.1v</p>
             </div>
         </footer>
     );

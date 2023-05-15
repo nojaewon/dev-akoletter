@@ -90,6 +90,9 @@ export const Editor = ({title, summary, content}) => {
               <p>
               {content}
               </p>
+              <button onClick={()=>{
+                console.log(store.toJSON())
+              }}>Click</button>
             </div>
       );
     }),
