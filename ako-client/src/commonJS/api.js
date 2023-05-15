@@ -85,7 +85,7 @@ const api = {
         if(useJSONServer){
             result = await axios.get(postlist_request_url).then(res=>res.data);
         } else {
-            result = await axios.get(postlist_request_url, {"category": "all"}, {headers}).then(res=>res.data);
+            result = await axios.post(postlist_request_url, {"category": "all"}, {headers}).then(res=>res.data);
         }
         return result;
     },
