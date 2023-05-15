@@ -5,6 +5,10 @@ const useJSONServer = true; // 서버를 임의의 Json-server로 사용할 시 
 
 const URL = LOCAL ? "http://localhost:8080" : "https://dev-akoletter-api.herokuapp.com";
 
+const headers = {
+    'Content-type' : 'aplication/json'
+}
+
 const api = {
     // 로그인 API
     requestLogin : async (id, pw)=>{
@@ -81,7 +85,7 @@ const api = {
         if(useJSONServer){
             result = await axios.get(postlist_request_url).then(res=>res.data);
         } else {
-            result = await axios.post(postlist_request_url, {"category": "all"}).then(res=>res.data);
+            result = await axios.get(postlist_request_url, {"category": "all"}, {headers}).then(res=>res.data);
         }
         return result;
     },
