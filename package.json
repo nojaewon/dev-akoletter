@@ -15,6 +15,5 @@
   "bugs": {
     "url": "https://github.com/nojaewon/dev-akoletter/issues"
   },
-  "homepage": "https://github.com/nojaewon/dev-akoletter#readme",
-  "proxy" : "https://dev-akoletter-api.herokuapp.com"
+  "homepage": "https://github.com/nojaewon/dev-akoletter#readme"
 }
