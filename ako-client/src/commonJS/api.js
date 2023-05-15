@@ -76,8 +76,13 @@ const api = {
     },
 
     getPostList: async()=>{
-        const postlist_request_url = `${URL}/post/postlist`;
-        const result = await axios.get(postlist_request_url).then(res=>res.data);
+        let result;
+        const postlist_request_url = `${URL}/`;
+        if(useJSONServer){
+            result = await axios.get(postlist_request_url).then(res=>res.data);
+        } else {
+            result = await axios.post(postlist_request_url, {"category": "all"}).then(res=>res.data);
+        }
         return result;
     },
 
