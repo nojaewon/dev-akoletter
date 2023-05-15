@@ -77,7 +77,7 @@ const api = {
 
     getPostList: async()=>{
         let result;
-        const postlist_request_url = `${URL}/post/postlist`;
+        const postlist_request_url = `${URL}/getpostlist`;
         if(useJSONServer){
             result = await axios.get(postlist_request_url).then(res=>res.data);
         } else {
