@@ -72,7 +72,7 @@ export const Editor = ({title, summary, content}) => {
     name: 'news-section',
     Tab: (props) => (
       <SectionTab name="News" {...props}>
-        <span className="material-symbols-outlined">
+        <span className="material-symbols-outlined" style={{fontSize: '16px', transform: 'translateY(5px) scale(1.4)'}}>
         feed
         </span>
       </SectionTab>
@@ -80,7 +80,7 @@ export const Editor = ({title, summary, content}) => {
   
     Panel: observer(() => {
       return (
-        <div>
+        <div style={{height: '100%', overflow:'scroll'}}>
               <h2 style={{lineHeight: '25px'}}>요약</h2> 
               <p>
                 {summary}
@@ -113,13 +113,13 @@ export const Editor = ({title, summary, content}) => {
   }, []);
 
   return (
-    <PolotnoContainer className="polotno-app-container" style={{width: '100%', height: '100%'}}>
-      <SidePanelWrap style={{height: '600px'}}>
-        <SidePanel store={store} sections={sections}/>
+    <PolotnoContainer className="polotno-app-container" style={{width: '100vw', height: '100vh'}}>
+      <SidePanelWrap style={{ }}>
+        <SidePanel store={store} sections={sections} style={{}}/>
       </SidePanelWrap>
-      <WorkspaceWrap style={{width: '400px', height:'600px'}}>
-        <Toolbar store={store} downloadButtonEnabled/>
-        <Workspace store={store} />
+      <WorkspaceWrap style={{width: '100vw', height:'100vh'}}>
+        <Toolbar store={store} downloadButtonEnabled style={{padding: '0'}}/>
+        <Workspace store={store} style={{}}/>
         <ZoomButtons store={store} />
       </WorkspaceWrap>
     </PolotnoContainer>

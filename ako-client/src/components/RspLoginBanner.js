@@ -28,10 +28,15 @@ function RspLoginBanner(){
         const pw = input_pw.current.value;
 
         api.requestLogin(id, pw).then((data)=>{
-            onLogin(data.token, data.usrId, data.usrNm);
-            sessionStorage.setItem('token', data.token);
-            sessionStorage.setItem('usrId', data.usrId);
-            sessionStorage.setItem('usrNm', data.usrNm);
+            try {
+                onLogin(data.token, data.usrId, data.usrNm);
+                sessionStorage.setItem('token', data.token);
+                sessionStorage.setItem('usrId', data.usrId);
+                sessionStorage.setItem('usrNm', data.usrNm);
+            } catch {
+                console.log('login error');
+            }
+            
         })
     }
 

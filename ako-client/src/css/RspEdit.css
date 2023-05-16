@@ -16,3 +16,15 @@
     .rsp-edit >.box .edit-step-box { margin-top: 20px; padding-left: 10%; width: 90%; }
 }
 
+/* polotno 스타일 직접 조정(툴바 스크롤바 제거) */
+@media screen and (max-width: 500px){
+    .go846226717::-webkit-scrollbar {
+        display: none;
+    } 
+}
+
+@media screen and (max-width: 500px){
+    .go3464034812::-webkit-scrollbar {
+        display: none;
+    }
+}
