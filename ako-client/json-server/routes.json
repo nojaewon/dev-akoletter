@@ -4,8 +4,8 @@
     "/member/reissue": "/reissue",
     "/member/logout": "/logout",
     "/member/delete": "/delte",
-    "/getpostlist" : "/posts",
-    "/post/postdetail/1" : "/post/1",
+    "/getpostlist/all" : "/posts",
+    "/main/getpost/1" : "/post/1",
     "/post/postdetail/2" : "/post/2",
     "/editor/summary" : "/summary"
 }

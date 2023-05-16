@@ -1,18 +1,11 @@
 import axios from 'axios';
 
-const LOCAL = true; // 로컬 서버를 사용할 경우 true
 const useJSONServer = true; // 서버를 임의의 Json-server로 사용할 시 true 아닐 시 false
-
-const URL = LOCAL ? "http://localhost:8080" : "https://dev-akoletter-api.herokuapp.com";
-
-const headers = {
-    'Content-type' : 'aplication/json'
-}
 
 const api = {
     // 로그인 API
     requestLogin : async (id, pw)=>{
-        const login_request_url = `${URL}/member/login`;
+        const login_request_url = `/member/login`;
         let result;
 
         if(useJSONServer){
@@ -55,7 +48,7 @@ const api = {
 
     requestSignUp: async (formData)=>{
         // 회원가입 API
-        const signup_request_url = `${URL}/member/join`;
+        const signup_request_url = `/member/join`;
 
         let result;
         if(useJSONServer){
@@ -69,7 +62,7 @@ const api = {
 
     requestSummaryContent: async (formData)=>{
         // 원문 요약 API
-        const summary_request_url = `${URL}/editor/summary`;
+        const summary_request_url = `/editor/summary`;
         let result;
         if(useJSONServer){
             result = await axios.get(summary_request_url).then(res=>res.data);
@@ -79,25 +72,22 @@ const api = {
         return result;
     },
 
-    getPostList: async()=>{
-        let result;
-        const postlist_request_url = `${URL}/getpostlist`;
-        if(useJSONServer){
-            result = await axios.get(postlist_request_url).then(res=>res.data);
-        } else {
-            result = await axios.post(postlist_request_url, {"category": "all"}, {headers}).then(res=>res.data);
-        }
+    getPostList: async(category)=>{
+        const postlist_request_url = `/getpostlist/${category}`;
+        const result = await axios.get(postlist_request_url, {
+            "accessToken" : "dummy"
+        }).then(res=>res.data);
         return result;
     },
 
     getPostDetail: async(id)=>{
-        const postdetail_request_url = `${URL}/post/postdetail/${id}`;
+        const postdetail_request_url = `/main/getpost/${id}`;
         
         let result;
         if(useJSONServer){
             result = await axios.get(postdetail_request_url).then(res=>res.data);
         } else {
-            result = await axios.post(postdetail_request_url, {"id": id}).then(res=>res.data);
+            result = await axios.post(postdetail_request_url, {"postId": id}).then(res=>res.data);
         }
 
         return result;

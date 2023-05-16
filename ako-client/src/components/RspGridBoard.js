@@ -22,7 +22,7 @@ function RspGridBoard(prop){
     }));
 
     useEffect(()=>{
-        api.getPostList()
+        api.getPostList("all")
             .then(res=>setContents(res.data))
     }, []);
 
