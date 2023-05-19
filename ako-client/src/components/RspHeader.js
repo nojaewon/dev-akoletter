@@ -1,7 +1,7 @@
 import '../css/RspHeader.css'
 
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Space} from 'antd';
+import { Avatar, Space, Button, Modal} from 'antd';
 
 import { Link } from 'react-router-dom'
 
@@ -33,6 +33,23 @@ function RspHeader(){
         usrNm: state.login.usrNm
     }));
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    // 로그아웃을 수락한 경우의 실행 함수
+    const handleOk = () => {
+        setIsModalOpen(false);
+        sessionStorage.setItem('token', null)
+        sessionStorage.setItem('usrId', null);
+        sessionStorage.setItem('usrNm', null);
+
+        onLogin(null, null, null);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+
     // 새로고침시에 로그인 정보 확인
     useEffect(()=>{
         const tk = sessionStorage.getItem('token')
@@ -62,6 +79,7 @@ function RspHeader(){
                     btnType={-1}
                     labeled={false}
                     link={"/"}
+                    onClick={showModal}
                 />
             );
         }
@@ -82,6 +100,8 @@ function RspHeader(){
 
     return (
         <header>
+            <Modal title="로그아웃을 하시겠습니까?" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}></Modal>
+
             <div className="box">
                 <h1 className="title"><Link className='pen' to="/">AKO Letter</Link></h1>
                 <nav className='links' ref={nav}>

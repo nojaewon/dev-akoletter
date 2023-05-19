@@ -7,7 +7,7 @@ import '../css/Avatar.css';
 const url = `${process.env.PUBLIC_URL}/ako/ako_face.png`;
 const url2 =  `${process.env.PUBLIC_URL}/ako/ako_love.png`;
 
-function ProfileAvatar({name, imgSrc, btnType, labeled, href}){
+function ProfileAvatar({name, imgSrc, btnType, labeled, href, onClick}){
   const userImagePath = url2;
 
   // {{ props 정보 }}
@@ -18,7 +18,9 @@ function ProfileAvatar({name, imgSrc, btnType, labeled, href}){
   
   return (
     <div className="profile">
-      <Link className="avatar-container" style={{display: 'block', width: 45, height: 45, backgroundColor: '#eee'}}>
+      <Link className="avatar-container"
+        onClick={onClick}
+        style={{display: 'block', width: 45, height: 45, backgroundColor: '#eee'}}>
         <Space size={40} wrap style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -52%)'}}>
             <Avatar size={"large"} src={<img src={userImagePath} alt={`${name}님의 프로필`} />} />
         </Space>
