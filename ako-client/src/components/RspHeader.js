@@ -40,9 +40,7 @@ function RspHeader(){
     // 로그아웃을 수락한 경우의 실행 함수
     const handleOk = () => {
         setIsModalOpen(false);
-        sessionStorage.setItem('token', null)
-        sessionStorage.setItem('usrId', null);
-        sessionStorage.setItem('usrNm', null);
+        sessionStorage.clear();
 
         onLogin(null, null, null);
     };
