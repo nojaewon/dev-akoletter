@@ -24,13 +24,30 @@ function RspGridBoard(prop){
     useEffect(()=>{
         api.getPostList("all")
             .then(res=>setContents(res.data))
+
+        // api.getBase64Image(10).then(res=>console.log(res))
     }, []);
 
+    useEffect(()=>{
+        return ()=>{
+            const base64Images = document.querySelectorAll(".postImage");
+            console.log(base64Images)
+            Array.from(base64Images).forEach((img)=>{
+                api.getBase64Image(10).then(url=>{
+                    img.src = `data:image/png;base64,${url}`
+                })
+            })
+        }
+    })
+
     const postlist = contents.map((post)=>{
+        const url = api.getBase64Image(10);
+
         return (
             <Link key={post.postId} to="/" className="card">
                 <figure>
-                    <img src={`${process.env.PUBLIC_URL}/img/polono_cardnews.png`} alt="temp" />
+                {/* data:image/png;base64, ${url} */}
+                    <img className="postImage" src={``} alt="temp" />
                 </figure>
                 <div className="card-body">
                     <h3>{post.postTitle}</h3>
