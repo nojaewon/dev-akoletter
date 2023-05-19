@@ -81,14 +81,8 @@ const api = {
     },
 
     getPostDetail: async(id)=>{
-        const postdetail_request_url = `/main/getpost/${id}`;
-        
-        let result;
-        if(useJSONServer){
-            result = await axios.get(postdetail_request_url).then(res=>res.data);
-        } else {
-            result = await axios.post(postdetail_request_url, {"postId": id}).then(res=>res.data);
-        }
+        const postdetail_request_url = `/getpost/${id}`;
+        const result = await axios.post(postdetail_request_url).then(res=>res.data);
 
         return result;
     },
