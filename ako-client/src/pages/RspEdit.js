@@ -18,18 +18,21 @@ import { useState } from 'react';
 
 function RspEdit(){
     const [stage, setStage] = useState(0);
-    const [summary, setSummary] = useState("");
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
+    const [formData, setFormData] = useState({
+        title : "",
+        content: "",
+        summary: "",
+        references : [],
+        category: ""
+    })
     
     return (
         <div className="container rsp-edit">
             <RspHeader />
             <div className='box header-padding'>
                 {stage === 0 && <StepsContainer stage={stage} />}
-                {stage === 0 && <EditStep1 setStage={setStage} setScript={[setSummary, setTitle, setContent]} />}
-                {/* {stage === 1 && <EditStep2 setStage={setStage} summary={summary} title={title} content={content}/>} */}
-                {stage === 1 && <Editor summary={summary} title={title} content={content} />}
+                {stage === 0 && <EditStep1 setStage={setStage} formData={formData} setFormData={setFormData} />}
+                {stage === 1 && <Editor formData={formData} />}
             </div>
             {stage !== 1 && <Footer/>}
         </div>

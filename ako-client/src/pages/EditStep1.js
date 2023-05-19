@@ -39,13 +39,16 @@ function EditStep1(props){
 
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
-
         values.url = url;
         api.requestSummaryContent(values).then((data)=>{
-            console.log(data.data);
-            props.setScript[0](data.data.summary);
-            props.setScript[1](data.data.original.title);
-            props.setScript[2](data.data.original.content);
+            props.setFormData({
+                ...props.formData,
+                title: data.data.original.title,
+                summary: data.data.summary,
+                content: data.data.original.content,
+                references: url,
+                category: values.category
+            })
         })
         props.setStage(1);
         

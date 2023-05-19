@@ -7,24 +7,25 @@ import { observer } from 'mobx-react-lite';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/popover2/lib/css/blueprint-popover2.css';
-import FaShapes from '@meronex/icons/fa/FaShapes';
-
 import { InputGroup } from '@blueprintjs/core';
+import { Button } from '@blueprintjs/core';
 
 import { Workspace } from 'polotno/canvas/workspace';
 import { SidePanel, SectionTab } from 'polotno/side-panel';
 import { Toolbar } from 'polotno/toolbar/toolbar';
 import { ZoomButtons } from 'polotno/toolbar/zoom-buttons';
 import { createStore } from 'polotno/model/store';
+import { DownloadButton } from 'polotno/toolbar/download-button';
 
 import { DEFAULT_SECTIONS } from 'polotno/side-panel';
+import api from '../commonJS/api';
 
 // create store
 const store = createStore({
   // this is a demo key just for that project
   // (!) please don't use it in your projects
   // to create your own API key please go here: https://polotno.dev/cabinet
-  key: 'Fum-VvkmEubucgAE08Sj',
+  key: 'EH5scaxDms-nGG_gATVu',
   // you can hide back-link on a paid license
   // but it will be good if you can keep it for Polotno project support
   showCredit: true,
@@ -47,7 +48,9 @@ store.activePage.addElement({
   fontSize: 50,
 });
 
-export const Editor = ({title, summary, content}) => {
+
+
+export const Editor = (props) => {
   const CustomSection = {
     name: 'custom-text',
     // we don't need "Tab" property, because it will be hidden from the list
@@ -83,16 +86,14 @@ export const Editor = ({title, summary, content}) => {
         <div style={{height: '100%', overflow:'scroll'}}>
               <h2 style={{lineHeight: '25px'}}>요약</h2> 
               <p>
-                {summary}
+                {props.formData.summary}
               </p>
               <br /> 
-              <h2 style={{lineHeight: '35px'}}>{title}</h2>
+              <h2 style={{lineHeight: '35px'}}>{props.formData.title}</h2>
               <p>
-              {content}
+              {props.formData.content}
               </p>
-              <button onClick={()=>{
-                console.log(store.toJSON())
-              }}>Click</button>
+              
             </div>
       );
     }),
@@ -112,13 +113,67 @@ export const Editor = ({title, summary, content}) => {
     });
   }, []);
 
+  // Save 버튼
+  const ActionControls = ({ store }) => {
+    return (
+      <div>
+        <DownloadButton store={store} />
+        <Button
+          intent="primary"
+          onClick={() => {
+            
+
+
+
+            // api.requestSavePost(formDataForSubmit)
+            //   .then(res=>res.data)
+            //   .then(data=>{
+            //     console.log(data)
+            //   })
+            store.toBlob().then(blob=>{
+              const formDataForSubmit = new FormData();
+              const chunks = [];
+              const numberOfSlices = 3;
+              const chunkSize = Math.ceil(blob.size / numberOfSlices);
+              for (let i = 0; i < numberOfSlices; i += 1) {
+                const startByte = chunkSize * i;
+                chunks.push(
+                  blob.slice(
+                    startByte,
+                    startByte + chunkSize,
+                    blob.type
+                  )
+                );
+              }
+
+              formDataForSubmit.append('postTitle', props.formData.title);
+              formDataForSubmit.append('postContent', props.formData.content);
+              formDataForSubmit.append('category', props.formData.category);
+              formDataForSubmit.append('usrId', sessionStorage.getItem('usrId'));
+              for(let i=0; i<chunks.length; i++){
+                formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`));
+              }
+
+              // for (let key of formDataForSubmit.keys()) {
+              //   console.log(key, ":", formDataForSubmit.get(key));
+              // }
+              console.log(formDataForSubmit.getAll('files'))
+            })
+          }}
+        >
+          Save
+        </Button>
+      </div>
+    );
+  };
+
   return (
     <PolotnoContainer className="polotno-app-container" style={{width: '100vw', height: '100vh'}}>
       <SidePanelWrap style={{ }}>
         <SidePanel store={store} sections={sections} style={{}}/>
       </SidePanelWrap>
       <WorkspaceWrap style={{width: '100vw', height:'100vh'}}>
-        <Toolbar store={store} downloadButtonEnabled style={{padding: '0'}}/>
+        <Toolbar store={store} style={{padding: '0'}} components={{ActionControls}}/>
         <Workspace store={store} style={{}}/>
         <ZoomButtons store={store} />
       </WorkspaceWrap>

@@ -7,5 +7,6 @@
     "/getpostlist/all" : "/posts",
     "/main/getpost/1" : "/post/1",
     "/post/postdetail/2" : "/post/2",
-    "/editor/summary" : "/summary"
+    "/editor/summary" : "/summary",
+    "/editor/savepost" : "/save"
 }

@@ -91,6 +91,18 @@ const api = {
         }
 
         return result;
+    },
+
+    requestSavePost: async(formData)=>{
+        const save_request_url = `/editor/savepost`;
+        let result;
+        if(useJSONServer){
+            result = await axios.get(save_request_url).then(res=>res.data);
+        } else {
+            result = await axios.post(save_request_url, formData).then(res=>res.data);
+        }
+
+        return result
     }
 };
 

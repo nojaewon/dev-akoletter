@@ -55,7 +55,7 @@ function RspGridBoard(prop){
                         <i className="card-category">정치</i>
                     </div>
                 </Link>
-                <Link to="/post/postdetail/1" className="card">
+                <Link to="/post/postdetail/17" className="card">
                 <figure>
                     <img src="https://sfs.synnara.co.kr/App/ImageViewerEShop?IID=EX000033546&FMT=2&ATTACH=EX&TYPE=1" alt="temp" />
                     </figure>
