@@ -3,7 +3,6 @@ import '../css/RspFooter.css';
 function Footer(){
     return (
         <footer>
-            <hr style={{marginRight: "0 20px 10px 20px"}}  />
             <p className="footer-links">&copy;2023 All Rights Reserved.
                 <a href="#">동국대학교 </a> | 
                 <a href="#">정보통신공학과 </a> | 

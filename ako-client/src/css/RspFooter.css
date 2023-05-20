@@ -1,15 +1,23 @@
 /* 푸터 */
+footer {
+    background-color: #243763;
+    padding-top: 15px;
+    color: #fff;
+    font-size: 16px;
+}
 
 footer .footer-links {
     width: 80vw;
     font-size: .7em;
     text-align: center;
-    margin: 20px auto 0 auto;
+    margin: 20px auto 10px auto;
 }
+
+footer .footer-links a {color: #fff !important; margin: 0 5px;}
 
 footer .footer-logos {
     width: 90vw;
-    margin: 8px auto 0 auto;
+    margin: 8px auto 8px auto;
     text-align: center;
     line-height: 25px;
 }
@@ -21,13 +29,14 @@ footer .footer-logos img {
 
 footer .footer-info {
    width: 90vw;
-   font-size: .7em;
+   font-size: 10px;
    margin: 0 auto; 
 }
 
 footer .footer-info .footer-info-version{
     text-align: right;
-    padding-bottom: 1px;
+    padding-bottom: 7px;
+    margin: 0;
 }
 
 footer .footer-info p {

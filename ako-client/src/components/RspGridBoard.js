@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
+// antd components
+import { Button, Space } from 'antd';
+
 import api from '../commonJS/api.js';
 
 
@@ -61,6 +64,9 @@ function RspGridBoard(prop){
             <div className="box">
                 {postlist}
             </div>
+            <Space style={{width: '100%', justifyContent: "center", marginTop: '25px'}}>
+                <Button size="large" style={{padding: "0 50px"}}>더보기</Button>
+            </Space>
         </section>
     );
 }
