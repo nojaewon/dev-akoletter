@@ -30,9 +30,9 @@ function RspGridBoard(prop){
     useEffect(()=>{
         return ()=>{
             const base64Images = document.querySelectorAll(".postImage");
-            Array.from(base64Images).forEach((img, idx)=>{
-                api.getBase64Image(idx).then(url=>{
-
+            Array.from(base64Images).forEach((img)=>{
+                api.getBase64Image(img.dataset.file).then(url=>{
+                    
                     img.src = `data:image/png;base64,${url}`
                 })
             })
@@ -40,13 +40,11 @@ function RspGridBoard(prop){
     })
 
     const postlist = contents.map((post)=>{
-
-
         return (
             <Link key={post.postId} to="/post/postdetail/17" className="card">
                 <figure>
                 {/* data:image/png;base64, ${url} */}
-                    <img className="postImage" src={`${process.env.PUBLIC_URL}/ako/ako_love.png`} alt="temp" />
+                    <img className="postImage" data-file={post.fileId} src={`${process.env.PUBLIC_URL}/ako/ako_love.png`} alt="temp" />
                 </figure>
                 <div className="card-body">
                     <h3>{post.postTitle}</h3>
