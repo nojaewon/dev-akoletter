@@ -15,7 +15,7 @@ import { dragX } from '../commonJS/event.js';
 import api from '../commonJS/api.js';
 
 
-const CARD_WIDTH = 350;
+const CARD_WIDTH = 375;
 const CARD_COUNT = 3;
 const DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
 
