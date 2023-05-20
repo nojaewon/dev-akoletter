@@ -41,7 +41,7 @@ function RspGridBoard(prop){
 
     const postlist = contents.map((post)=>{
         return (
-            <Link key={post.postId} to="/post/postdetail/17" className="card">
+            <Link key={post.postId} to={`/post/postdetail/${post.postId}`} className="card">
                 <figure>
                 {/* data:image/png;base64, ${url} */}
                     <img className="postImage" data-file={post.fileId} src={`${process.env.PUBLIC_URL}/ako/ako_love.png`} alt="temp" />
