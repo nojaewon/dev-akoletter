@@ -36,15 +36,16 @@ window.store = store;
 // add page and element instantly
 const page = store.addPage();
 page.set({
-  width: 350,
-  height: 400
+  width: 500,
+  height: 500
 })
 
 store.activePage.addElement({
   type: 'text',
-  text: 'Hello from Polotno',
-  y: store.height / 2,
-  width: store.width,
+  text: 'Hello AkoLetter',
+  y: 100,
+  x: 0,
+  width: 500,
   fontSize: 50,
 });
 
