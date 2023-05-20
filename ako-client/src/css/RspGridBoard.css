@@ -31,7 +31,7 @@
     border-bottom: 1px solid var(--border-color);
 }
 
-.grid-board .box .card figure { width: 100%; }
+.grid-board .box .card figure { width: 100%; height: 70%; overflow: hidden; }
 .grid-board .box .card figure img { width: 100%;}
 
 .card .card-body { width: 100%; padding-top: 7px; padding-left: 15px; padding-right: 15px;}
@@ -45,6 +45,7 @@
     .grid-board .box { grid-template-columns: 1fr 1fr 1fr; }
     .grid-board .box .card { height: 29vw; }
     .card .card-body h3 { font-size: 1.3vw;}
+    .grid-board .box .card figure { height: 69%;}
 }
 
 /* 그리드 [700 < 너비 <= 900] */
@@ -52,6 +53,7 @@
     .grid-board .box { grid-template-columns: 1fr 1fr; }
     .grid-board .box .card { height: 43vw; }
     .card .card-body h3 { font-size: 2vw;}
+    .grid-board .box .card figure { height: 69%;}
 }
 
 /* 그리드 [너비 <= 700] */
@@ -59,6 +61,7 @@
     .grid-board .box { grid-template-columns: 1fr; }
     .grid-board .box .card { height: 79vw;}
     .card .card-body h3 { font-size: 3.4vw;}
+    .grid-board .box .card figure { height: 75%;}
 }
 
 
