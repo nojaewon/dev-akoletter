@@ -13,11 +13,6 @@ import api from '../commonJS/api.js';
 
 function RspGridBoard(prop){
     const [contents, setContents] = useState([]);
-    // props.row
-    // props.col
-    
-    const ROW = 1;
-    const COL = 3;
     const CARTEOGRY = ['전체', '정치', '경제', '세계', '테크', '노동', '환경', '인권', '문화', '라이프'];
 
     const { usrNm } = useSelector(state => ({

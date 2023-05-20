@@ -3,7 +3,7 @@
     --btn-width : 75px;
 
     width: 80%;
-    margin: 5px auto;
+    margin: 5px auto 20px auto;
     overflow-x: scroll;
 }
 
@@ -18,14 +18,17 @@
 
 .btn-group button.b {
     width: var(--btn-width);
-    font-size: 0.7em;
+    color: #555;
     padding: 3px 0;
     background: none;
     border: none;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .btn-group button.b:hover {
-    font-weight: bold;
     text-decoration: underline;
+    color: #000;
 }
 

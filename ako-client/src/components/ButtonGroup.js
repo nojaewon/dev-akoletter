@@ -11,12 +11,11 @@ function ButtonGroup(props){
     useEffect(()=>{
         // 버튼 그룹의 width 계산/적용
         const btnGRoupWidth = `${targetList.length * BTN_WIDTH}px`;
-
         btnGroup.current.style.width = btnGRoupWidth;
     }, []);
 
     const buttons = targetList.map((btn_title, idx)=>
-        <button key={idx} className='b'>{btn_title}</button>
+        <button key={idx} className='b pen'>{btn_title}</button>
     )
     
     return (
