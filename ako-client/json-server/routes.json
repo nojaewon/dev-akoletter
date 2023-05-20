@@ -5,8 +5,7 @@
     "/member/logout": "/logout",
     "/member/delete": "/delte",
     "/getpostlist/all" : "/posts",
-    "/getpost/17" : "/post/17",
-    "/post/postdetail/2" : "/post/2",
+    "/post/postdetail/:id" : "/post/:id",
     "/editor/summary" : "/summary",
     "/editor/savepost" : "/save"
 }

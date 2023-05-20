@@ -29,9 +29,10 @@ function RspBoard(){
     const boardId = useParams().id;
     const [board, setBoard] = useState({
         postTitle: "",
-        fieldId: "",
+        fileId: "",
         frstRgstId: "",
         postContent: "",
+        category: ""
     });
     let left = 0;
 
@@ -65,6 +66,18 @@ function RspBoard(){
         })
     }, [])
 
+    // 카드뉴스 이미지 로딩
+    useEffect(()=>{
+        return ()=>{
+            const base64Images = document.querySelectorAll(".cardnews>img");
+            Array.from(base64Images).forEach((img)=>{
+                api.getBase64Image(img.dataset.file).then(url=>{
+                    img.src = `data:image/png;base64,${url}`
+                })
+            })
+        }
+    })
+
     return (
         <div className="container">
             <RspHeader />
@@ -77,7 +90,7 @@ function RspBoard(){
             </div>
             <section className="board">
                 <div className="header">
-                    <p className="category"><a href="#">{board.fieldId}</a></p>
+                    <p className="category"><a href="#">{board.category}</a></p>
                     <h2 className="title">{board.postTitle}</h2>
                     <p className="date"><time>{board.frstRgstId}</time></p>
                 </div>
@@ -90,13 +103,13 @@ function RspBoard(){
                         <div className='cardnews-display' ref={cardDisplay}>
                             {/* 카드뉴스가 움직이는 부분 */}
                             <div className="cardnews">
-                                <img src={`${process.env.PUBLIC_URL}/img/cardnews1.png`} alt="1" />
+                                <img data-file={board.fileId} src={`${process.env.PUBLIC_URL}/img/cardnews1.png`} alt="카드뉴스 페이지1" />
                             </div>
                             <div className="cardnews">
-                                <img src={`${process.env.PUBLIC_URL}/img/cardnews2.png`} alt="2" />
+                                <img data-file={board.fileId} src={`${process.env.PUBLIC_URL}/img/cardnews2.png`} alt="카드뉴스 페이지2" />
                             </div>
                             <div className="cardnews">
-                                <img src={`${process.env.PUBLIC_URL}/img/cardnews3.png`} alt="3" />
+                                <img data-file={board.fileId} src={`${process.env.PUBLIC_URL}/img/cardnews3.png`} alt="카드뉴스 페이지3" />
                             </div>
                         </div>
                     </div>
