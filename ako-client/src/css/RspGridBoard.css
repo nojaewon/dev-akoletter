@@ -21,7 +21,7 @@
 
 .grid-board .box .card {
     display: block;
-    height: 21vw;
+    height: 20vw;
     cursor: pointer;
 
     /* absolute 기준점 */
@@ -43,7 +43,7 @@
 /* 그리드 [900 < 너비 <= 1360] */
 @media screen and (min-width: 901px) and (max-width: 1360px) {
     .grid-board .box { grid-template-columns: 1fr 1fr 1fr; }
-    .grid-board .box .card { height: 29vw; }
+    .grid-board .box .card { height: 25vw; }
     .card .card-body h3 { font-size: 1.3vw;}
     .grid-board .box .card figure { height: 69%;}
 }
@@ -51,7 +51,7 @@
 /* 그리드 [700 < 너비 <= 900] */
 @media screen and (min-width: 701px) and (max-width: 900px) {
     .grid-board .box { grid-template-columns: 1fr 1fr; }
-    .grid-board .box .card { height: 43vw; }
+    .grid-board .box .card { height: 39vw; }
     .card .card-body h3 { font-size: 2vw;}
     .grid-board .box .card figure { height: 69%;}
 }
@@ -59,7 +59,7 @@
 /* 그리드 [너비 <= 700] */
 @media screen and (max-width: 700px) {
     .grid-board .box { grid-template-columns: 1fr; }
-    .grid-board .box .card { height: 79vw;}
+    .grid-board .box .card { height: 77vw;}
     .card .card-body h3 { font-size: 3.4vw;}
     .grid-board .box .card figure { height: 75%;}
 }
