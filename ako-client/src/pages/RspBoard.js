@@ -106,10 +106,10 @@ function RspBoard(){
                                 <img data-file={board.fileId} src={`${process.env.PUBLIC_URL}/img/cardnews1.png`} alt="카드뉴스 페이지1" />
                             </div>
                             <div className="cardnews">
-                                <img data-file={board.fileId} src={`${process.env.PUBLIC_URL}/img/cardnews2.png`} alt="카드뉴스 페이지2" />
+                                <img data-file={board.fileId+1} src={`${process.env.PUBLIC_URL}/img/cardnews2.png`} alt="카드뉴스 페이지2" />
                             </div>
                             <div className="cardnews">
-                                <img data-file={board.fileId} src={`${process.env.PUBLIC_URL}/img/cardnews3.png`} alt="카드뉴스 페이지3" />
+                                <img data-file={board.fileId+2} src={`${process.env.PUBLIC_URL}/img/cardnews3.png`} alt="카드뉴스 페이지3" />
                             </div>
                         </div>
                     </div>
