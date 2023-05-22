@@ -80,6 +80,7 @@ function RspSignUpContainer(){
         api.requestSignUp(values).then((data)=>{
             if(data.state === 200){
                 console.log(data.message);
+                navigate('/');
             } else if (data.state === 400){
                 console.log(data.message);
             }
@@ -112,7 +113,7 @@ function RspSignUpContainer(){
                 form={form}
                 onFinish={onFinish}
                 initialValues={{
-                    prefix: '86',
+                    prefix: '82',
                 }}
                 style={{maxWidth: 600,}}
                 scrollToFirstError

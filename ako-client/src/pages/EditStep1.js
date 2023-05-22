@@ -2,11 +2,12 @@
 import '../css/EditStep1.css';
 
 // antd
-import { Button, Form, Input, Select, List, Drawer } from 'antd';
+import { Button, Form, Input, Select, List, Drawer, Modal } from 'antd';
 import React, { useState, useRef } from 'react';
 
 // api
 import api from '../commonJS/api.js';
+import { useNavigate } from 'react-router-dom';
 
 const layout = {
     labelCol: {
@@ -32,10 +33,13 @@ const validateMessages = {
 };
 
 function EditStep1(props){
+    const navigate = useNavigate();
     const [urlValue, setUrlValue] = useState("");
     const [url, setUrl] = useState([]);
     const [form] = Form.useForm();
     const submitButton = useRef();
+
+    const [isContinueModal, setIsContinueModal] = useState(false);
 
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
@@ -51,7 +55,6 @@ function EditStep1(props){
             })
         })
         props.setStage(1);
-        
     };
 
     // 가이드라인 드로워 스테이트 && 함수
@@ -177,12 +180,28 @@ function EditStep1(props){
                         },
                         }}
                 >
-                    <Button ref={submitButton} type="primary" htmlType="submit">
+                    <Button ref={submitButton} type="primary" htmlType="submit" style={{marginRight: '10px'}}>
                         요약하기
+                    </Button>
+
+                    <Button onClick={()=>{
+                        setIsContinueModal(true);
+                    }} type="default">
+                        뒤로가기
                     </Button>
                 </Form.Item>
             </Form>
-            
+
+            <Modal title="주의" open={isContinueModal}
+                onOk={()=>{
+                    navigate('/');
+                }}
+                onCancel={()=>{
+                    setIsContinueModal(false);
+                }}
+            >
+                    <p>기록했던 모든 정보는 저장되지 않습니다. 뒤로 가시겠습니까?</p>
+            </Modal>
         </section>
     )
 }
