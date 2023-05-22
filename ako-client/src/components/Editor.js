@@ -122,15 +122,6 @@ export const Editor = (props) => {
         <Button
           intent="primary"
           onClick={() => {
-            
-
-
-
-            // api.requestSavePost(formDataForSubmit)
-            //   .then(res=>res.data)
-            //   .then(data=>{
-            //     console.log(data)
-            //   })
             store.toBlob().then(blob=>{
               const formDataForSubmit = new FormData();
               const chunks = [];
@@ -147,18 +138,23 @@ export const Editor = (props) => {
                 );
               }
 
-              formDataForSubmit.append('postTitle', props.formData.title);
-              formDataForSubmit.append('postContent', props.formData.content);
-              formDataForSubmit.append('category', props.formData.category);
-              formDataForSubmit.append('usrId', sessionStorage.getItem('usrId'));
+              formDataForSubmit.append('request', {
+                postTitle: props.formData.title,
+                postContent: props.formData.content,
+                category: props.formData.category,
+                usrId: sessionStorage.getItem('usrId')                
+              })
+
               for(let i=0; i<chunks.length; i++){
                 formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`));
               }
 
-              // for (let key of formDataForSubmit.keys()) {
-              //   console.log(key, ":", formDataForSubmit.get(key));
-              // }
               console.log(formDataForSubmit.getAll('files'))
+              api.requestSavePost(formDataForSubmit)
+                .then(res=>res.data)
+                .then(data=>{
+                  console.log(data)
+                })
             })
           }}
         >
