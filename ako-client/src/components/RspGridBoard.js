@@ -47,7 +47,7 @@ function RspGridBoard(prop){
                 <div className="card-body">
                     <h3>{post.postTitle}</h3>
                     <time className="card-date">{post.frstRgstDt}</time>
-                    <i className="card-category">{post.unqUsrId}</i>
+                    <i className="card-category">{post.category}</i>
                 </div>
             </Link>
         )
