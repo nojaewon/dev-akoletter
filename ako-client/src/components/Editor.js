@@ -19,6 +19,7 @@ import { DownloadButton } from 'polotno/toolbar/download-button';
 
 import { DEFAULT_SECTIONS } from 'polotno/side-panel';
 import api from '../commonJS/api';
+import { useNavigate } from 'react-router-dom';
 
 // create store
 const store = createStore({
@@ -52,6 +53,7 @@ store.activePage.addElement({
 
 
 export const Editor = (props) => {
+  const navigate = useNavigate();
   const CustomSection = {
     name: 'custom-text',
     // we don't need "Tab" property, because it will be hidden from the list
@@ -143,10 +145,10 @@ export const Editor = (props) => {
                 postContent: props.formData.content,
                 category: props.formData.category,
                 usrId: sessionStorage.getItem('usrId')                
-              })
+              }, "application/json")
 
               for(let i=0; i<chunks.length; i++){
-                formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`));
+                formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`), "image/png");
               }
 
               console.log(formDataForSubmit.getAll('files'))
