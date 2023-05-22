@@ -204,6 +204,21 @@ function RspSignUpContainer(){
                 </Form.Item>
 
                 <Form.Item
+                    name={USRFORM.name}
+                    label="이름"
+                    tooltip="당신의 이름을 입력해주세요!"
+                    rules={[
+                        {
+                            required: false,
+                            message: '당신의 이름을 입력해주세요!',
+                            whitespace: true,
+                        },
+                    ]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
                     name={USRFORM.tel}
                     label="핸드폰 번호"
                     rules={[
