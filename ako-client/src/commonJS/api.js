@@ -81,7 +81,7 @@ const api = {
     },
 
     getPostDetail: async(id)=>{
-        const postdetail_request_url = `/post/postdetail/${id}`;
+        const postdetail_request_url = `/getpost/${id}`;
         const result = await axios.get(postdetail_request_url).then(res=>res.data);
 
         return result;
