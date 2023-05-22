@@ -93,7 +93,11 @@ const api = {
         if(useJSONServer){
             result = await axios.get(save_request_url).then(res=>res.data);
         } else {
-            result = await axios.post(save_request_url, formData).then(res=>res.data);
+            result = await axios.post(save_request_url, formData,{
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                  }
+            }).then(res=>res.data);
         }
 
         return result

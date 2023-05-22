@@ -140,12 +140,12 @@ export const Editor = (props) => {
                 );
               }
 
-              formDataForSubmit.append('request', {
+              formDataForSubmit.append('request',new Blob([JSON.stringify({
                 postTitle: props.formData.title,
                 postContent: props.formData.content,
                 category: props.formData.category,
                 usrId: sessionStorage.getItem('usrId')                
-              })
+              })], {type: "application/json"}))
 
               for(let i=0; i<chunks.length; i++){
                 formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`, {
@@ -153,7 +153,10 @@ export const Editor = (props) => {
                 }));
               }
 
-              console.log(formDataForSubmit.getAll('files'))
+              for (let key of formDataForSubmit.keys()) {
+                console.log(key, ":", formDataForSubmit.get(key));
+              }
+
               api.requestSavePost(formDataForSubmit)
                 .then(res=>res.data)
                 .then(data=>{
