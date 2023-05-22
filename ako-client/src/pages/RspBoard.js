@@ -19,8 +19,6 @@ const CARD_WIDTH = 375;
 const CARD_COUNT = 3;
 const DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
 
-const editorName = "늙코";
-
 function RspBoard(){
     const cardDisplay = useRef();
     const cardBack = useRef();
@@ -30,6 +28,7 @@ function RspBoard(){
     const [board, setBoard] = useState({
         postTitle: "",
         fileId: "",
+        usrId: "늙코",
         frstRgstId: "",
         postContent: "",
         category: ""
@@ -83,7 +82,7 @@ function RspBoard(){
             <RspHeader />
             <div className="header-padding">
                 <ProfileAvatar
-                    name={editorName}
+                    name={board.usrId}
                     labeled={true}
                     btnType={0}
                 />
