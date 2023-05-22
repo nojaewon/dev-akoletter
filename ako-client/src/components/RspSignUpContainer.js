@@ -92,8 +92,7 @@ function RspSignUpContainer(){
             <Select
                 style={{ width: 70,}}
             >
-                <Option value="86">+86</Option>
-                <Option value="87">+87</Option>
+                <Option value="82">+82</Option>
             </Select>
         </Form.Item>
     );
