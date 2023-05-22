@@ -145,10 +145,12 @@ export const Editor = (props) => {
                 postContent: props.formData.content,
                 category: props.formData.category,
                 usrId: sessionStorage.getItem('usrId')                
-              }, "application/json")
+              })
 
               for(let i=0; i<chunks.length; i++){
-                formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`), "image/png");
+                formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`, {
+                  type: "image/png"
+                }));
               }
 
               console.log(formDataForSubmit.getAll('files'))
