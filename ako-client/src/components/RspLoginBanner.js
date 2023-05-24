@@ -12,7 +12,7 @@ import { setLogin } from '../store/modules/Login.js';
 // import commonJS module
 import api from '../commonJS/api.js';
 
-function RspLoginBanner(){
+function RspLoginBanner({showMessage}){
 
     // dom refs
     const input_id = useRef();
@@ -33,8 +33,9 @@ function RspLoginBanner(){
                 sessionStorage.setItem('token', data.token);
                 sessionStorage.setItem('usrId', data.usrId);
                 sessionStorage.setItem('usrNm', data.usrNm);
+                showMessage(`${data.usrId}님 환영해요!`)
             } catch {
-                console.log('login error');
+                showMessage(`로그인 오류`, 'error')
             }
             
         })

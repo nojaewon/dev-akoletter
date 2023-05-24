@@ -1,7 +1,7 @@
 import '../css/RspHeader.css'
 
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Space, Button, Modal} from 'antd';
+import { Avatar, Space, Modal} from 'antd';
 
 import { Link } from 'react-router-dom'
 
@@ -72,13 +72,13 @@ function RspHeader(){
         } else {
             // link는 내 프로필로 들어가는 URL을 넣어야 함.
             return(
-                <ProfileAvatar
-                    name={usrNm}
-                    btnType={-1}
-                    labeled={false}
-                    link={"/"}
-                    onClick={showModal}
-                />
+                    <ProfileAvatar
+                        name={usrNm}
+                        btnType={-1}
+                        labeled={false}
+                        link={"/"}
+                        onClick={showModal}
+                    />
             );
         }
     }

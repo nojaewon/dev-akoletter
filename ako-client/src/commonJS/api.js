@@ -25,12 +25,13 @@ const api = {
                 "usrPwd": pw
              })
                 .then((response)=>{
-                    const data = response.data.data;
+                    const data = response.data;
         
                     return {
-                        usrNm : data.usrNm,
-                        usrId : data.usrId,
-                        token : data.token
+                        msg: data.message,
+                        usrNm : data.data.usrNm,
+                        usrId : data.data.usrId,
+                        token : data.data.token
                     }
                 })
                 .catch((err) => {
