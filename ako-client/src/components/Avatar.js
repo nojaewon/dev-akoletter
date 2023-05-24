@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 
-import { Avatar, Space } from 'antd';
+import { Avatar, Space, Tooltip } from 'antd';
 
 import '../css/Avatar.css';
 
@@ -17,7 +17,7 @@ function ProfileAvatar({name, imgSrc, btnType, labeled, href, onClick}){
   const btnLabel = ['팔로우', '팔로잉']
   
   return (
-    <div className="profile">
+    <Tooltip title="로그아웃" className="profile">
       <Link className="avatar-container"
         onClick={onClick}
         style={{display: 'block', width: 45, height: 45, backgroundColor: '#eee'}}>
@@ -27,7 +27,7 @@ function ProfileAvatar({name, imgSrc, btnType, labeled, href, onClick}){
       </Link>
       { labeled ? <h5 className='pen'>{name} 님</h5> : ""}
       { btnType === -1? "" : <button className='pen'>{btnLabel[btnType]}</button>}
-    </div>
+    </Tooltip>
 
     
   );
