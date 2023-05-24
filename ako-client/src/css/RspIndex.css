@@ -41,7 +41,7 @@ body::-webkit-scrollbar {
 
 /* header 포지셔닝 - fixed 때문에 위에 패딩 */
 .header-padding {
-    padding-top: 75px;
+    padding-top: 100px;
 }
 
 /* 폰트 스타일 */
