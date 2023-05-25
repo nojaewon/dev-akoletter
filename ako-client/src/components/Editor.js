@@ -147,9 +147,9 @@ export const Editor = (props) => {
         <Button
           intent="primary"
           onClick={() => {
-            const page0 = store.toBlob({pageId:store.pages[0].id})
-            const page1 = store.toBlob({pageId:store.pages[1].id})
-            const page2 = store.toBlob({pageId:store.pages[2].id})
+            const page0 = store.toBlob({pageId:store.pages[0].id,  mimeType: 'image/png'})
+            const page1 = store.toBlob({pageId:store.pages[1].id,  mimeType: 'image/png'})
+            const page2 = store.toBlob({pageId:store.pages[2].id,  mimeType: 'image/png'})
             
             Promise.all([page0, page1, page2]).then(blobs=>{
               const formDataForSubmit = new FormData();
@@ -161,20 +161,19 @@ export const Editor = (props) => {
                 usrId: sessionStorage.getItem('usrId')                
               })], {type: "application/json"}))
 
-              blobs.forEach((blob, i)=>{
+              for(let i=0; i<COUNT_CARDNEWS; i++){
+                const blob = blobs[i];
                 formDataForSubmit.append('files', new File([blob], `cardnews${i}.png`, {
                   type: "image/png"
                 }));
-              })
+              }
 
-              // for (let key of formDataForSubmit.keys()) {
-              //   console.log(key, ":", formDataForSubmit.get(key));
-              // }
+              console.log(formDataForSubmit.get("request"))
+              console.log(formDataForSubmit.getAll("files"));
 
               api.requestSavePost(formDataForSubmit)
                 .then(res=>res.data)
                 .then(data=>{
-                  console.log(data)
                   waitAndRedirect(`/post/postdetail/${data.postId}`, 2000)
                 })
             })
