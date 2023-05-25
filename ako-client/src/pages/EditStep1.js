@@ -2,7 +2,7 @@
 import '../css/EditStep1.css';
 
 // antd
-import { Button, Form, Input, Select, List, Drawer, Modal } from 'antd';
+import { Button, Form, Input, Select, List, Drawer, Modal, Tooltip } from 'antd';
 import React, { useState, useRef } from 'react';
 
 // api
@@ -44,6 +44,7 @@ function EditStep1(props){
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
         values.url = url;
+        console.log(values)
         api.requestSummaryContent(values).then((data)=>{
             props.setFormData({
                 ...props.formData,
@@ -72,10 +73,11 @@ function EditStep1(props){
                 <p>Some contents...</p>
             </Drawer>
 
-            <h2><a href="#" className='guideline-link' onClick={(e)=>{
+            <h2><Tooltip title="요약 서비스에 대해 자세히 알고싶으시면 클릭해보세요!" open={true}>
+                <a href="#" className='guideline-link' onClick={(e)=>{
                 e.preventDefault();
                 setOpen(true);    
-            }}>뉴스 기사 요약 서비스란?</a></h2>
+            }}>뉴스 기사 요약 서비스란?</a></Tooltip></h2>
             <Form
                 {...layout}
                     onFinish={onFinish}
