@@ -22,6 +22,7 @@ import api from '../commonJS/api';
 import { useNavigate } from 'react-router-dom';
 import { message } from 'antd'
 
+const COUNT_CARDNEWS = 3;
 // create store
 const store = createStore({
   // this is a demo key just for that project
@@ -36,20 +37,27 @@ const store = createStore({
 window.store = store;
 
 // add page and element instantly
-const page = store.addPage();
-page.set({
-  width: 500,
-  height: 500
-})
 
-store.activePage.addElement({
-  type: 'text',
-  text: 'Hello AkoLetter',
-  y: 100,
-  x: 0,
-  width: 500,
-  fontSize: 50,
-});
+for(let i=0; i<COUNT_CARDNEWS; i++){
+  const page = store.addPage();
+  page.set({
+    width: 500,
+    height: 500
+  })
+
+  page.addElement({
+    type: 'text',
+    text: 'Hello AkoLetter',
+    y: 100,
+    x: 0,
+    width: 500,
+    fontSize: 50,
+  })
+}
+
+// select second page
+store.selectPage(store.pages[0].id);
+
 
 
 
@@ -59,7 +67,7 @@ export const Editor = (props) => {
   const waitAndRedirect = (link, time) => {
     messageApi.open({
       type: 'loading',
-      content: 'Action in progress..',
+      content: '카드뉴스를 생성하는 중입니다...',
       duration: 0,
     });
     // Dismiss manually and asynchronously
@@ -167,7 +175,7 @@ export const Editor = (props) => {
                 .then(res=>res.data)
                 .then(data=>{
                   console.log(data)
-                  waitAndRedirect(`/post/postdetail/${data.postId}`, 2500)
+                  waitAndRedirect(`/post/postdetail/${data.postId}`, 2000)
                 })
             })
           }}
@@ -187,7 +195,7 @@ export const Editor = (props) => {
           </SidePanelWrap>
           <WorkspaceWrap style={{width: '100vw', height:'100vh'}}>
             <Toolbar store={store} style={{padding: '0'}} components={{ActionControls}}/>
-            <Workspace store={store} style={{}}/>
+            <Workspace store={store} style={{}} components={{ PageControls: () => null }}/>
             <ZoomButtons store={store} />
           </WorkspaceWrap>
         </PolotnoContainer>
