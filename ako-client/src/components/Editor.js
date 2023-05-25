@@ -124,21 +124,11 @@ export const Editor = (props) => {
         <Button
           intent="primary"
           onClick={() => {
-            store.toBlob().then(blob=>{
-              const formDataForSubmit = new FormData();
-              const chunks = [];
-              const numberOfSlices = 3;
-              const chunkSize = Math.ceil(blob.size / numberOfSlices);
-              for (let i = 0; i < numberOfSlices; i += 1) {
-                const startByte = chunkSize * i;
-                chunks.push(
-                  blob.slice(
-                    startByte,
-                    startByte + chunkSize,
-                    blob.type
-                  )
-                );
-              }
+            const page0 = store.toBlob({pageId:store.pages[0].id})
+            const page1 = store.toBlob({pageId:store.pages[1].id})
+            const page2 = store.toBlob({pageId:store.pages[2].id})
+
+            Promise.all([page0, page1, page2]).then(blobs=>{
 
               formDataForSubmit.append('request',new Blob([JSON.stringify({
                 postTitle: props.formData.title,
@@ -147,11 +137,11 @@ export const Editor = (props) => {
                 usrId: sessionStorage.getItem('usrId')                
               })], {type: "application/json"}))
 
-              for(let i=0; i<chunks.length; i++){
-                formDataForSubmit.append('files', new File([chunks[i]], `cardnews${i}.png`, {
+              blobs.forEach((blob, i)=>{
+                formDataForSubmit.append('files', new File([blob]), `cardnews${i}.png`, {
                   type: "image/png"
-                }));
-              }
+                });
+              })
 
               for (let key of formDataForSubmit.keys()) {
                 console.log(key, ":", formDataForSubmit.get(key));
