@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 
 // React Hook
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 // import action func
@@ -22,6 +23,7 @@ const navHeight = 80;
 // 새로고침시 세션에 로그인 정보가 있다면 리덕스 스토어에 다시 넣어주는 역할
 
 function RspHeader(){
+    const navigate = useNavigate();
     const hamburgerButton = useRef();
     const nav = useRef();
 
@@ -43,6 +45,7 @@ function RspHeader(){
         sessionStorage.clear();
 
         onLogin(null, null, null);
+        navigate('/');
     };
     const handleCancel = () => {
         setIsModalOpen(false);
