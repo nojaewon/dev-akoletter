@@ -124,12 +124,12 @@ export const Editor = (props) => {
         <Button
           intent="primary"
           onClick={() => {
-            const formDataForSubmit = new FormData();
             const page0 = store.toBlob({pageId:store.pages[0].id})
             const page1 = store.toBlob({pageId:store.pages[1].id})
             const page2 = store.toBlob({pageId:store.pages[2].id})
-
+            
             Promise.all([page0, page1, page2]).then(blobs=>{
+              const formDataForSubmit = new FormData();
 
               formDataForSubmit.append('request',new Blob([JSON.stringify({
                 postTitle: props.formData.title,
@@ -139,7 +139,7 @@ export const Editor = (props) => {
               })], {type: "application/json"}))
 
               blobs.forEach((blob, i)=>{
-                formDataForSubmit.append('files', new File([blob]), `cardnews${i}.png`, {
+                formDataForSubmit.append('files', new File([blob], `cardnews${i}.png`), {
                   type: "image/png"
                 });
               })

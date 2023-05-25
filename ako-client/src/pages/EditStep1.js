@@ -44,7 +44,6 @@ function EditStep1(props){
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
         values.url = url;
-        console.log(values)
         api.requestSummaryContent(values).then((data)=>{
             props.setFormData({
                 ...props.formData,
