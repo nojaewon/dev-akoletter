@@ -2,7 +2,7 @@
 import '../css/EditStep1.css';
 
 // antd
-import { Button, Form, Input, Select, List, Drawer, Modal, Tooltip } from 'antd';
+import { Button, Form, Input, Select, List, Drawer, Modal, Tooltip, message } from 'antd';
 import React, { useState, useRef } from 'react';
 
 // api
@@ -41,6 +41,21 @@ function EditStep1(props){
 
     const [isContinueModal, setIsContinueModal] = useState(false);
 
+    const [messageApi, contextHolder] = message.useMessage();
+    const waitSummaryAndNextStep = (time) => {
+        messageApi.open({
+        type: 'loading',
+        content: '뉴스를 요약하는 중입니다...',
+        duration: 0,
+        });
+        // Dismiss manually and asynchronously
+        setTimeout(messageApi.destroy, time);
+        setTimeout(()=>{
+            props.setStage(1);
+        }, time)
+
+    };
+
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
         values.url = url;
@@ -53,8 +68,9 @@ function EditStep1(props){
                 references: data.data.references,
                 category: values.category
             })
+            waitSummaryAndNextStep(2000);
         })
-        props.setStage(1);
+        
     };
 
     // 가이드라인 드로워 스테이트 && 함수
@@ -65,6 +81,7 @@ function EditStep1(props){
 
     return (
         <section className="edit-step-box edit-step-1">
+            {contextHolder}
             {/* 가이드라인 드로워 */}
             <Drawer title="아코레터의 뉴스 기사 요약 서비스란?" placement="right" onClose={onClose} width={"50vw"} open={open}>
                 <p>Some contents...</p>
