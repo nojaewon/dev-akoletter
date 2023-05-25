@@ -19,7 +19,8 @@ import { DownloadButton } from 'polotno/toolbar/download-button';
 
 import { DEFAULT_SECTIONS } from 'polotno/side-panel';
 import api from '../commonJS/api';
-import { Form, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { message } from 'antd'
 
 // create store
 const store = createStore({
@@ -54,6 +55,20 @@ store.activePage.addElement({
 
 export const Editor = (props) => {
   const navigate = useNavigate();
+  const [messageApi, contextHolder] = message.useMessage();
+  const waitAndRedirect = (link, time) => {
+    messageApi.open({
+      type: 'loading',
+      content: 'Action in progress..',
+      duration: 0,
+    });
+    // Dismiss manually and asynchronously
+    setTimeout(messageApi.destroy, time);
+    setTimeout(()=>{
+      navigate(link)
+    }, time)
+  };
+
   const CustomSection = {
     name: 'custom-text',
     // we don't need "Tab" property, because it will be hidden from the list
@@ -139,19 +154,20 @@ export const Editor = (props) => {
               })], {type: "application/json"}))
 
               blobs.forEach((blob, i)=>{
-                formDataForSubmit.append('files', new File([blob], `cardnews${i}.png`), {
+                formDataForSubmit.append('files', new File([blob], `cardnews${i}.png`, {
                   type: "image/png"
-                });
+                }));
               })
 
-              for (let key of formDataForSubmit.keys()) {
-                console.log(key, ":", formDataForSubmit.get(key));
-              }
+              // for (let key of formDataForSubmit.keys()) {
+              //   console.log(key, ":", formDataForSubmit.get(key));
+              // }
 
               api.requestSavePost(formDataForSubmit)
                 .then(res=>res.data)
                 .then(data=>{
                   console.log(data)
+                  waitAndRedirect(`/post/postdetail/${data.postId}`, 2500)
                 })
             })
           }}
@@ -163,16 +179,20 @@ export const Editor = (props) => {
   };
 
   return (
-    <PolotnoContainer className="polotno-app-container" style={{width: '100vw', height: '100vh'}}>
-      <SidePanelWrap style={{ }}>
-        <SidePanel store={store} sections={sections} style={{}}/>
-      </SidePanelWrap>
-      <WorkspaceWrap style={{width: '100vw', height:'100vh'}}>
-        <Toolbar store={store} style={{padding: '0'}} components={{ActionControls}}/>
-        <Workspace store={store} style={{}}/>
-        <ZoomButtons store={store} />
-      </WorkspaceWrap>
-    </PolotnoContainer>
+    <div className='edit-container'>
+      {contextHolder}
+      <PolotnoContainer className="polotno-app-container" style={{width: '100vw', height: '100vh'}}>
+          <SidePanelWrap style={{ }}>
+            <SidePanel store={store} sections={sections} style={{}}/>
+          </SidePanelWrap>
+          <WorkspaceWrap style={{width: '100vw', height:'100vh'}}>
+            <Toolbar store={store} style={{padding: '0'}} components={{ActionControls}}/>
+            <Workspace store={store} style={{}}/>
+            <ZoomButtons store={store} />
+          </WorkspaceWrap>
+        </PolotnoContainer>
+    </div>
+    
   );
 };
 
