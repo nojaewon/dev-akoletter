@@ -19,7 +19,7 @@ import { DownloadButton } from 'polotno/toolbar/download-button';
 
 import { DEFAULT_SECTIONS } from 'polotno/side-panel';
 import api from '../commonJS/api';
-import { useNavigate } from 'react-router-dom';
+import { Form, useNavigate } from 'react-router-dom';
 
 // create store
 const store = createStore({
@@ -124,6 +124,7 @@ export const Editor = (props) => {
         <Button
           intent="primary"
           onClick={() => {
+            const formDataForSubmit = new FormData();
             const page0 = store.toBlob({pageId:store.pages[0].id})
             const page1 = store.toBlob({pageId:store.pages[1].id})
             const page2 = store.toBlob({pageId:store.pages[2].id})
