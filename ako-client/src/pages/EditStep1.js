@@ -50,7 +50,7 @@ function EditStep1(props){
                 title: data.data.original.title,
                 summary: data.data.summary,
                 content: data.data.original.content,
-                references: url,
+                references: data.data.references,
                 category: values.category
             })
         })
