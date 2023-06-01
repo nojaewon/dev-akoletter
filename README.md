@@ -1,4 +1,5 @@
 # AKO Letter
+<img src="https://user-images.githubusercontent.com/82192655/242472378-d7789f00-b6cf-4198-9017-c1342fe4912b.png" width=500>
 ## _The Card News Service in the form of SNS_
 
 The ako letter service is a card news service in the form of SNS. It is a web page for a platform where people who want to subscribe to the card news editor of the category they are interested in and who want to be an editor and produce their own card news. _polotno_ is a opinionated JavaScript library and React components to build canvas editor for several business use cases. This project is a graduation project of Dongguk University Capstone Design.
