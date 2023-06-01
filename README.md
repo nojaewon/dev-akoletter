@@ -46,7 +46,7 @@ json-server --routes routes.json --port 8080 --watch db.json
 
     b. 올려둔 원격 서버와 통신을 하는 경우 위의 api.js의 상수 값 LOCAL 또한 false로 바꿔주어야 함.   
 
-__## Some Pages__
+## Some Pages
 I recommend installing the project according to quick start and viewing the web page in person, but I attach an image for quick view.
 
 ### MainPage
