@@ -73,8 +73,8 @@ const api = {
         return result;
     },
 
-    getPostList: async(category)=>{
-        const postlist_request_url = `/getpostlist/${category}`;
+    getPostList: async(category, size)=>{
+        const postlist_request_url = `/getpostlist?category=${category}?size=${size}`;
         const result = await axios.get(postlist_request_url, {
             "accessToken" : "dummy"
         }).then(res=>res.data);

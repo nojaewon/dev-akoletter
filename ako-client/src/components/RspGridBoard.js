@@ -13,6 +13,7 @@ import api from '../commonJS/api.js';
 
 function RspGridBoard(prop){
     const [contents, setContents] = useState([]);
+    const [size, setSize] = useState(12);
     const CARTEOGRY = ['전체', '정치', '경제', '세계', '테크', '노동', '환경', '인권', '문화', '라이프'];
 
     const { usrNm } = useSelector(state => ({
@@ -20,12 +21,11 @@ function RspGridBoard(prop){
     }));
 
     useEffect(()=>{
-        api.getPostList("all")
-            .then(res=>setContents(res.data))
+        api.getPostList("all", size)
+        .then(res=>setContents(res.data))
+    },[])
 
-    }, []);
-
-    useEffect(()=>{
+    useEffect(()=>{    
         return ()=>{
             const base64Images = document.querySelectorAll(".postImage");
             Array.from(base64Images).forEach((img)=>{
@@ -60,7 +60,10 @@ function RspGridBoard(prop){
                 {postlist}
             </div>
             <Space style={{width: '100%', justifyContent: "center", marginTop: '25px'}}>
-                <Button size="large" style={{padding: "0 50px"}}>더보기</Button>
+                <Button onClick={()=>{
+                    api.getPostList("all", size)
+                    .then(res=>setContents(res.data))
+                }} size="large" style={{padding: "0 50px"}}>더보기</Button>
             </Space>
         </section>
     );
