@@ -16,6 +16,9 @@ import { setLogin } from '../store/modules/Login.js';
 // components
 import ProfileAvatar from './Avatar.js';
 
+// api
+import api from '../commonJS/api';
+
 
 const navHeight = 80;
 
@@ -31,8 +34,9 @@ function RspHeader(){
     const dispatch = useDispatch();
     const onLogin = (token, usrId, usrNm) => dispatch(setLogin(token, usrId, usrNm));
 
-    const { usrNm } = useSelector(state => ({
-        usrNm: state.login.usrNm
+    const { usrNm, token } = useSelector(state => ({
+        usrNm: state.login.usrNm,
+        token: state.login.token
     }));
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -42,6 +46,8 @@ function RspHeader(){
     // 로그아웃을 수락한 경우의 실행 함수
     const handleOk = () => {
         setIsModalOpen(false);
+
+        api.getLogOutRequest(token.access_token);
         sessionStorage.clear();
 
         onLogin(null, null, null);

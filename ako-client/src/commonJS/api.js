@@ -109,6 +109,15 @@ const api = {
         const result = await axios.get(request_data_url).then(res=>res.data.data.image)
 
         return result;
+    },
+
+    getLogOutRequest : async (token)=>{
+        const logout_request_url = `/members/logout`;
+        const result = await axios.post(logout_request_url, {
+            "accessToken": token
+        }).then(res=>res.data);
+
+        return result;
     }
 };
 
