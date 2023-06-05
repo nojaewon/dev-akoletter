@@ -74,10 +74,8 @@ const api = {
     },
 
     getPostList: async(category, size)=>{
-        const postlist_request_url = `/getpostlist?category=${category}?size=${size}`;
-        const result = await axios.get(postlist_request_url, {
-            "accessToken" : "dummy"
-        }).then(res=>res.data);
+        const postlist_request_url = `/getpostlist?category=${category}&size=${size}`;
+        const result = await axios.get(postlist_request_url).then(res=>res.data);
         return result;
     },
 
@@ -112,7 +110,7 @@ const api = {
     },
 
     getLogOutRequest : async (token)=>{
-        const logout_request_url = `/members/logout`;
+        const logout_request_url = `/member/logout`;
         const result = await axios.post(logout_request_url, {
             "accessToken": token
         }).then(res=>res.data);
