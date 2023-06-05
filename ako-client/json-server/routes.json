@@ -4,7 +4,7 @@
     "/member/reissue": "/reissue",
     "/member/logout": "/logout",
     "/member/delete": "/delte",
-    "/getpostlist?category=:category?size=:size" : "/posts",
+    "/getpostlist?category=:category&size=:size" : "/posts",
     "/getpost/:id" : "/post/:id",
     "/editor/summary" : "/summary",
     "/editor/savepost" : "/save"

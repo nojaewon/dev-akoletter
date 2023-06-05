@@ -113,6 +113,10 @@ const api = {
         const logout_request_url = `/member/logout`;
         const result = await axios.post(logout_request_url, {
             "accessToken": token
+        }, {
+            headers: {
+                'Authorization': token
+              }
         }).then(res=>res.data);
 
         return result;
