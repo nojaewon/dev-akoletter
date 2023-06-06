@@ -61,6 +61,7 @@ function RspGridBoard(prop){
             </div>
             <Space style={{width: '100%', justifyContent: "center", marginTop: '25px'}}>
                 <Button onClick={()=>{
+                    setSize(size+12)
                     api.getPostList("all", size)
                     .then(res=>setContents(res.data))
                 }} size="large" style={{padding: "0 50px"}}>더보기</Button>
