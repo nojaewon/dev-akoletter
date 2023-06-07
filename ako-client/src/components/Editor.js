@@ -110,12 +110,14 @@ export const Editor = (props) => {
     Panel: observer(() => {
       return (
         <div style={{height: '100%', overflow:'scroll'}}>
-              <h2 style={{lineHeight: '25px'}}>요약</h2> 
+              <h2 style={{lineHeight: '25px'}}><b>요약</b></h2> 
+              <hr style={{ margin: "10px 0"}}/>
               <p>
                 {props.formData.summary}
               </p>
               <br /> 
-              <h2 style={{lineHeight: '35px'}}>{props.formData.title}</h2>
+              <h2 style={{lineHeight: '35px'}}><b>{props.formData.title}</b></h2>
+              <hr style={{ margin: "10px 0"}}/>
               <p>
               {props.formData.content}
               </p>
