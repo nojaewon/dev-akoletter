@@ -102,9 +102,20 @@ function RspSignUpContainer(){
         <div className='sign-container header-padding'>
             {/* 이용 약관 드로워 */}
             <Drawer title="개인정보 수집&middot;이용 동의" placement="right" onClose={onClose} width={"50vw"} open={open}>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <p><b>개인정보 수집·이용 동의</b></p>
+                <br />
+                <p>아코레터는 팔로워의 새 카드뉴스 소식을 알리기 위해 최소한의 개인정보를 수집하고 사용합니다.</p>
+                <br />
+                <p>수집·이용 목적 - 아코레터 소식 발송</p>
+                <p>수집·이용 항목 - 이메일 주소</p>
+                <p>보유·이용 기간 - 서비스 종료 or 회원 탈퇴 시까지</p>
+                <br />
+                <p>동의 거부 시 개인정보 수집·이용 동의를 거부할 권리가 있습니다. 단, 거부 시 아코레터 서비스를 이용할 수 없습니다.</p>
+                <br />
+                <p><b>광고성 정보 수신 동의</b></p>
+                <br />
+                <p>광고성 정보 수신에 동의 시, 이메일로 발송되는 소식에 광고성 정보가 포함될 수 있습니다. </p>
+
             </Drawer>
 
             <h2>회원가입</h2>

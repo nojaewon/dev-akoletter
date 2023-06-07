@@ -58,6 +58,7 @@ function EditStep1(props){
 
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
+        values.content = values.content.replace(/\"/gi, '&quot;')
         values.references = url;
         api.requestSummaryContent(values).then((data)=>{
             props.setFormData({
@@ -84,9 +85,10 @@ function EditStep1(props){
             {contextHolder}
             {/* 가이드라인 드로워 */}
             <Drawer title="아코레터의 뉴스 기사 요약 서비스란?" placement="right" onClose={onClose} width={"50vw"} open={open}>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+                <p><b>글쓰기 가이드라인 (지켜야할 사항)</b></p>
+                <p>1. 카드 뉴스를 제작하기 위한 기사를 작성해주세요.</p>
+                <p>2. 작성란에 2000자를 넘으면 요약 시 2000자 이후 내용이 생략됩니다.</p>
+                <p>3. 글 작성에 사용된 자료의 출처를 출처란에 URL 형식으로 적어주세요.</p>
             </Drawer>
 
             <h2><Tooltip title="요약 서비스에 대해 자세히 알고싶으시면 클릭해보세요!" open={true}>
