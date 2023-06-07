@@ -58,7 +58,7 @@ function EditStep1(props){
 
     // 요약 완료 시 실행 함수
     const onFinish = (values) => {
-        values.content = values.content.replace(/\"/gi, '&quot;')
+        values.content = values.content.replace(/\"/gi, "\'")
         values.references = url;
         api.requestSummaryContent(values).then((data)=>{
             props.setFormData({
