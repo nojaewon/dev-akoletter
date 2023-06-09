@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 const useJSONServer = true; // 서버를 임의의 Json-server로 사용할 시 true 아닐 시 false
+const URL = useJSONServer ? "http://localhost:8080" : "http://akoletter-api.azurewebsites.net";
 
 const api = {
     // 로그인 API
     requestLogin : async (id, pw)=>{
-        const login_request_url = `/member/login`;
+        const login_request_url = `${URL}/member/login`;
         let result;
 
         if(useJSONServer){
@@ -49,7 +50,7 @@ const api = {
 
     requestSignUp: async (formData)=>{
         // 회원가입 API
-        const signup_request_url = `/member/join`;
+        const signup_request_url = `${URL}/member/join`;
 
         let result;
         if(useJSONServer){
@@ -63,7 +64,7 @@ const api = {
 
     requestSummaryContent: async (formData)=>{
         // 원문 요약 API
-        const summary_request_url = `/editor/summary`;
+        const summary_request_url = `${URL}/editor/summary`;
         let result;
         if(useJSONServer){
             result = await axios.get(summary_request_url).then(res=>res.data);
@@ -74,20 +75,20 @@ const api = {
     },
 
     getPostList: async(category, size)=>{
-        const postlist_request_url = `/getpostlist?category=${category}&size=${size}`;
+        const postlist_request_url = `${URL}/getpostlist?category=${category}&size=${size}`;
         const result = await axios.get(postlist_request_url).then(res=>res.data);
         return result;
     },
 
     getPostDetail: async(id)=>{
-        const postdetail_request_url = `/getpost/${id}`;
+        const postdetail_request_url = `${URL}/getpost/${id}`;
         const result = await axios.get(postdetail_request_url).then(res=>res.data);
 
         return result;
     },
 
     requestSavePost: async(formData)=>{
-        const save_request_url = `/editor/savepost`;
+        const save_request_url = `${URL}/editor/savepost`;
         let result;
         if(useJSONServer){
             result = await axios.get(save_request_url).then(res=>res.data);
@@ -103,14 +104,14 @@ const api = {
     },
 
     getBase64Image: async (fileId)=>{
-        const request_data_url = `/images/${fileId}`;
+        const request_data_url = `${URL}/images/${fileId}`;
         const result = await axios.get(request_data_url).then(res=>res.data.data.image)
 
         return result;
     },
 
     getLogOutRequest : async (token)=>{
-        const logout_request_url = `/member/logout`;
+        const logout_request_url = `${URL}/member/logout`;
         const result = await axios.post(logout_request_url, {
             "accessToken": token
         }, {
