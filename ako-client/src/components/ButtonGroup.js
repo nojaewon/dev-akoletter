@@ -1,6 +1,7 @@
 import '../css/ButtonGroup.css';
 
 import {useEffect, useRef} from 'react';
+import api from '../commonJS/api.js';
 
 const BTN_WIDTH = 75;
 
@@ -15,7 +16,9 @@ function ButtonGroup(props){
     }, []);
 
     const buttons = targetList.map((btn_title, idx)=>
-        <button key={idx} className='b pen'>{btn_title}</button>
+        <button onClick={()=>{
+            api.getPostList(`${idx==0 ? 'all' : idx}`, 12).then(res=>props.callBack(res.data))
+        }} key={idx} className='b pen'>{btn_title}</button>
     )
     
     return (
