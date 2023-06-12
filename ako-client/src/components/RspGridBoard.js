@@ -46,8 +46,8 @@ function RspGridBoard(prop){
                 </figure>
                 <div className="card-body">
                     <h3>{post.postTitle}</h3>
-                    <time className="card-date">{post.frstRgstDt}</time>
-                    <i className="card-category">{post.category}</i>
+                    <time className="card-date">{post.frstRgsDt}</time>
+                    <i className="card-category">{CARTEOGRY[post.category]}</i>
                 </div>
             </Link>
         )
@@ -55,7 +55,7 @@ function RspGridBoard(prop){
 
     return (
         <section className={`grid-board ${ usrNm && "header-padding"}`}>
-            <ButtonGroup target={CARTEOGRY}/>
+            <ButtonGroup target={CARTEOGRY} callBack={setContents}/>
             <div className="box">
                 {postlist}
             </div>
