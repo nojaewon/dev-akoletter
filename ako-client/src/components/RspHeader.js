@@ -115,9 +115,9 @@ function RspHeader(){
                     
                 </nav>
                 <nav className='functions'>
-                    <Link href="#" className='search'>
+                    {/* <Link href="#" className='search'>
                         <span style={{color: '#fff'}} className="material-symbols-outlined">search</span>
-                    </Link>
+                    </Link> */}
                     {profile()}
                     <Link href="#" ref={hamburgerButton} id="hamburger">
                         <span className="material-symbols-outlined">menu</span>
