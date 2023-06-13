@@ -170,12 +170,7 @@ export const Editor = (props) => {
                 postContent: props.formData.content,
                 category: props.formData.category,
                 usrId: sessionStorage.getItem('usrId'),
-                urlList: props.formData.references.map((el, idx)=>{
-                  if (idx !== props.formData.references.length-1){
-                    return `${el}`
-                  }
-                  return `${el}, `
-                })             
+                urlList: props.formData.references.join(", ")
               })], {type: "application/json"}))
 
               for(let i=0; i<COUNT_CARDNEWS; i++){
