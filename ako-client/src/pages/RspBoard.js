@@ -14,7 +14,7 @@ import { useParams } from 'react-router-dom';
 import { dragX } from '../commonJS/event.js';
 import api from '../commonJS/api.js';
 
-
+const CARTEOGRY = ['전체', '정치', '경제', '세계', '테크', '노동', '환경', '인권', '문화', '라이프'];
 const CARD_WIDTH = 375;
 const CARD_COUNT = 3;
 const DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
@@ -89,7 +89,7 @@ function RspBoard(){
             </div>
             <section className="board">
                 <div className="header">
-                    <p className="category"><a href="#">{board.category}</a></p>
+                    <p className="category"><a href="#">{CARTEOGRY[board.category]}</a></p>
                     <h2 className="title">{board.postTitle}</h2>
                     <p className="date"><time>{board.frstRgstId}</time></p>
                 </div>
