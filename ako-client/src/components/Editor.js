@@ -77,26 +77,6 @@ export const Editor = (props) => {
     }, time)
   };
 
-  const CustomSection = {
-    name: 'custom-text',
-    // we don't need "Tab" property, because it will be hidden from the list
-    visibleInList: false,
-    // we need observer to update component automatically on any store changes
-    Panel: observer(({ store }) => {
-      const text = store.selectedElements[0]?.text;
-      return (
-        <div>
-          <InputGroup
-            value={text}
-            onChange={(e) => {
-              store.selectedElements[0]?.set({ text: e.target.value });
-            }}
-          />
-        </div>
-      );
-    }),
-  };
-  
   const NewsSection = {
     name: 'news-section',
     Tab: (props) => (
@@ -108,27 +88,57 @@ export const Editor = (props) => {
     ),
   
     Panel: observer(() => {
+      const onCopy = (e) =>{
+        navigator.clipboard.writeText(e.target.value).then(()=>{
+          messageApi.open({
+            type: 'success',
+            content: '복사되었습니다',
+            duration: 0,
+          });
+          // Dismiss manually and asynchronously
+          setTimeout(messageApi.destroy, 1000);
+        })
+
+      };
+      const inputClipBoard = props.formData.summary.map((sentence, idx)=>{
+        return (
+        <div key={idx}>
+          <p>{sentence}</p>
+          <button
+          value={sentence}
+          onClick={onCopy}
+          style={{
+            padding: '2px 15px'
+          }}
+        >Copy</button>
+        <br /><br />
+        </div>
+        
+        );
+      })
+
+
       return (
         <div style={{height: '100%', overflow:'scroll'}}>
-              <h2 style={{lineHeight: '25px'}}><b>요약</b></h2> 
-              <hr style={{ margin: "10px 0"}}/>
-              <p>
-                {props.formData.summary}
-              </p>
-              <br /> 
-              <h2 style={{lineHeight: '35px'}}><b>{props.formData.title}</b></h2>
-              <hr style={{ margin: "10px 0"}}/>
-              <p>
-              {props.formData.content}
-              </p>
+          <h2 style={{lineHeight: '25px'}}><b>3줄 요약</b></h2> 
+          <hr style={{ margin: "10px 0"}}/>
+          <p>
+            {inputClipBoard}
+          </p>
+          <br /> 
+          <h2 style={{lineHeight: '35px'}}><b>{props.formData.title}</b></h2>
+          <hr style={{ margin: "10px 0"}}/>
+          <p>
+          {props.formData.content}
+          </p>
               
-            </div>
-      );
-    }),
-  };
+        </div>
+    );
+  })
+}
 
 // add new section
-  const sections = [NewsSection, ...DEFAULT_SECTIONS.slice(0, 7), CustomSection];
+  const sections = [NewsSection, ...DEFAULT_SECTIONS.slice(0, 7)];
 
   React.useEffect(() => {
     return autorun(() => {
