@@ -129,7 +129,7 @@ function RspBoard(){
                         header={<div>이 뉴스레터는 아래의 뉴스들을 참고했습니다.</div>}
                         bordered
                         dataSource={board.urlList && board.urlList.split(", ")}
-                        renderItem={(item) => <List.Item>{item}</List.Item>}
+                        renderItem={(item) => <List.Item><a href={item} target='_blank'>{item}</a></List.Item>}
                     />
                 </div>
 
