@@ -18,6 +18,7 @@ import RspMain from './pages/RspMain.js';
 import RspBoard from './pages/RspBoard.js';
 import RspSignUp from './pages/RspSignUp.js';
 import RspEdit from './pages/RspEdit.js';
+import Page404 from './pages/404page.js';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: '/edit',
     element: <RspEdit />
+  },
+  {
+    path: '*',
+    element: <Page404 />
   }
 ])
 
