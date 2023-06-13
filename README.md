@@ -46,7 +46,7 @@ json-server --routes routes.json --port 8080 --watch db.json
 
     a. json-server를 사용하지 않고 외부 서버를 여는 경우 commonJS/api.js의 상수 값 useJSONserver를 false로 바꿔주어야 함
 
-    b. 로컬에서 JSON-server를 사용하는 경우 pakage.json의 proxy: "http://localhost:8080"설정이 되어 있는지 확인해야함.
+    b. 로컬에서 JSON-server를 사용하는 경우 pakage.json의 proxy가 "http://localhost:8080" 설정이 되어 있는지 확인해야함.
 
     c. 올려둔 원격 서버와 통신을 하는 경우 위의 api.js의 상수 값 LOCAL 또한 false로 바꿔주어야 함.
 
