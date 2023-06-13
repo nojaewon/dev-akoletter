@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const useJSONServer = false; // 서버를 임의의 Json-server로 사용할 시 true 아닐 시 false
-const LOCAL = false
-const URL = LOCAL ? "http://localhost:8080" : "http://akoletter-api.azurewebsites.net";
+const LOCAL = false;
+const URL = LOCAL ? "http://localhost:8080" : "https://akoletter-api.azurewebsites.net";
 
 const api = {
     // 로그인 API
