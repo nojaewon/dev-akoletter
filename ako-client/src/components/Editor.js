@@ -7,7 +7,6 @@ import { observer } from 'mobx-react-lite';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/popover2/lib/css/blueprint-popover2.css';
-import { InputGroup } from '@blueprintjs/core';
 import { Button } from '@blueprintjs/core';
 
 import { Workspace } from 'polotno/canvas/workspace';
@@ -170,7 +169,13 @@ export const Editor = (props) => {
                 postTitle: props.formData.title,
                 postContent: props.formData.content,
                 category: props.formData.category,
-                usrId: sessionStorage.getItem('usrId')                
+                usrId: sessionStorage.getItem('usrId'),
+                urlList: props.formData.references.map((el, idx)=>{
+                  if (idx !== props.formData.references.length-1){
+                    return `${el}`
+                  }
+                  return `${el}, `
+                })             
               })], {type: "application/json"}))
 
               for(let i=0; i<COUNT_CARDNEWS; i++){

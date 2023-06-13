@@ -34,7 +34,8 @@ function RspBoard(){
         usrId: "늙코",
         frstRgstId: "",
         postContent: "",
-        category: ""
+        category: "",
+        urlList: ""
     });
     let left = 0;
 
@@ -127,7 +128,7 @@ function RspBoard(){
                         size="small"
                         header={<div>이 뉴스레터는 아래의 뉴스들을 참고했습니다.</div>}
                         bordered
-                        dataSource={board.references}
+                        dataSource={board.urlList && board.urlList.split(", ")}
                         renderItem={(item) => <List.Item>{item}</List.Item>}
                     />
                 </div>
