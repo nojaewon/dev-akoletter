@@ -9,6 +9,9 @@ import Footer from "../components/Footer.js";
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 
+//antd
+import {List} from 'antd';
+
 
 // 함수 가져오기
 import { dragX } from '../commonJS/event.js';
@@ -120,7 +123,13 @@ function RspBoard(){
                 </div>
 
                 <div className="cardnews-source">
-
+                    <List
+                        size="small"
+                        header={<div>이 뉴스레터는 아래의 뉴스들을 참고했습니다.</div>}
+                        bordered
+                        dataSource={board.references}
+                        renderItem={(item) => <List.Item>{item}</List.Item>}
+                    />
                 </div>
 
 
