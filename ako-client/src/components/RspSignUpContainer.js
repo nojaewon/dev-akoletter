@@ -258,7 +258,7 @@ function RspSignUpContainer(){
                     {...tailFormItemLayout}
                 >
                     <Checkbox>
-                    위 개인정보의 <a href="#" style={{fontWeight: "bold"}} onClick={(e)=>{
+                    위 개인정보의 <a href="/" style={{fontWeight: "bold"}} onClick={(e)=>{
                         e.preventDefault();
                         setOpen(true);
                     }}>수집&middot;이용 약관 </a>에 동의합니다. 

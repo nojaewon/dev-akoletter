@@ -12,7 +12,7 @@
     flex-wrap: wrap;
 }
 
-.login-banner .box h2 { width: 100%; line-height: 50px; text-align: center; font-size: 1.8em; border-bottom: 1.5px inset #ddd;}
+.login-banner .box h2 { width: 100%; line-height: 50px; text-align: center; font-size: 2.5em; border-bottom: 1.5px inset #ddd;}
 .login-banner .box form { width: 50%; height: 400px; }
 
 /* 배너 이미지 */
@@ -24,7 +24,7 @@
 /* 로그인 섹션 */
 .login-container, .sign-container { width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center;}
 
-.login-container .banner-desc { width: 80%; margin: 20px auto 10px auto; font-size: 0.8em;}
+.login-container .banner-desc { width: 80%; margin: 20px auto 10px auto; font-size: 1em;}
 .login-container input { width: 80%; height: 25px; padding: 10px; margin: 8px 10%; font-size: 0.7em;}
 .login-container a { margin: 5px 10%; font-size: 0.6em; }
 .login-container a:hover { text-decoration: underline; text-underline-offset: 1.5px; }

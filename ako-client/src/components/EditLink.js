@@ -14,7 +14,7 @@ function EditLink(){
     }));
 
     return (
-        <div className='edit-start'>
+        <div className={usrNm && "edit-start"}>
             {
                 usrNm == null ?
                 "":

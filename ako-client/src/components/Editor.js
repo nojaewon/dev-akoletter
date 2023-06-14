@@ -40,8 +40,8 @@ window.store = store;
 for(let i=0; i<COUNT_CARDNEWS; i++){
   const page = store.addPage();
   page.set({
-    width: 1000,
-    height: 1000
+    width: 720,
+    height: 720
   })
 
   page.addElement({

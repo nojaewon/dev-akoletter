@@ -10,6 +10,11 @@
 .rsp-edit >.box .steps-container::-webkit-scrollbar-thumb { background-color: rgba(0,0,0,0.2); border-radius: 5px;}
 .rsp-edit >.box .steps-container::-webkit-scrollbar-track { border-radius: 5px;}
 
+/* Polotno 컴포넌트 정적 스타일 적용 */
+.bp4-popover2-transition-container {
+    z-index: 1010;
+}
+
 @media screen and (max-width: 975px) {
     .rsp-edit >.box {justify-content: start;}
     .rsp-edit >.box .steps-container {padding-left: 10%; width: 90%; border: none; height: 270px;}

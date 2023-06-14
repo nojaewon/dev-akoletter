@@ -101,7 +101,9 @@ function RspBoard(){
             </div>
             <section className="board">
                 <div className="header">
-                    <p className="category"><a href="#">{CARTEOGRY[board.category]}</a></p>
+                    <p className="category"><a href="/" onClick={(e)=>{
+                        e.preventDefault();
+                    }}>{CARTEOGRY[board.category]}</a></p>
                     <h2 className="title">{board.postTitle}</h2>
                     <p className="date"><time>{board.frstRgstId}</time></p>
                 </div>

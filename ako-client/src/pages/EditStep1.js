@@ -92,7 +92,7 @@ function EditStep1(props){
             </Drawer>
 
             <h2><Tooltip title="요약 서비스에 대해 자세히 알고싶으시면 클릭해보세요!" open={true}>
-                <a href="#" className='guideline-link' onClick={(e)=>{
+                <a href="/" className='guideline-link' onClick={(e)=>{
                 e.preventDefault();
                 setOpen(true);    
             }}>뉴스 기사 요약 서비스란?</a></Tooltip></h2>

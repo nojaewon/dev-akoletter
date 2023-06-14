@@ -53,7 +53,7 @@ function RspLoginBanner({showMessage}){
                 <form>
                     <div className="login-container">
                         <p className="banner-desc">
-                            지금 "345,012"명이 서비스를 사용중이에요🙂<br />
+                            지금 <b>"345,012"</b>명이 서비스를 사용중이에요🙂<br />
                             세상 돌아가는 소식, 우리 아코들은 놓치지 말고, 직접 보고, 알려주세요!<br />
                             뉴스레터를 통해 하루 5분, 세상을 향해 표현해요!
                         </p>
@@ -63,7 +63,7 @@ function RspLoginBanner({showMessage}){
                             <Button onClick={loginRequest}>시작하기</Button>
                         </Space>
                         <Link to="/signup">회원가입</Link>
-                        <Link to="#">계정을 모르시나요?</Link>
+                        <Link to="/">계정을 모르시나요?</Link>
                     </div>
                 </form>
 
