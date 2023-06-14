@@ -122,10 +122,20 @@ const api = {
         }).then(res=>res.data);
 
         return result;
+    },
+    requestDeleteBoard: async (postId, usrId, token)=>{
+        const deleteBoard_request_url = `/post/delete`;
+        const result = await axios.post(deleteBoard_request_url, {
+            "postId": parseInt(postId),
+            "usrId": usrId
+        },{
+            headers: {
+                "Authorization": token
+              }
+        }).then(res=>res.data);
+
+        return result;
     }
 };
-
-
-
 
 export default api;

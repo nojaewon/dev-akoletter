@@ -59,7 +59,7 @@ function RspHeader(){
 
     // 새로고침시에 로그인 정보 확인
     useEffect(()=>{
-        const tk = sessionStorage.getItem('token')
+        const tk = JSON.parse(sessionStorage.getItem('token'))
         const id = sessionStorage.getItem('usrId');
         const nm = sessionStorage.getItem('usrNm');
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 // react-router-dom
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 // react-redux
 import { createStore } from 'redux';
@@ -27,7 +27,7 @@ const store = createStore(rootReducer, composeWithDevTools());
 
 // 리엑트 돔 생성 및 라우팅
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <RspMain />

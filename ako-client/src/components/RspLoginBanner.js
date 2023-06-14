@@ -32,7 +32,7 @@ function RspLoginBanner({showMessage}){
                 showMessage(`로그인 에러`)
             } else {
                 onLogin(data.token, data.usrId, data.usrNm);
-                sessionStorage.setItem('token', data.token);
+                sessionStorage.setItem('token', JSON.stringify(data.token));
                 sessionStorage.setItem('usrId', data.usrId);
                 sessionStorage.setItem('usrNm', data.usrNm);
                 showMessage(`${data.usrId}님 환영해요!`)

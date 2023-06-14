@@ -8,6 +8,7 @@ import Footer from "../components/Footer.js";
 // react
 import { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 //antd
 import {List} from 'antd';
@@ -23,6 +24,11 @@ const CARD_COUNT = 3;
 const DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
 
 function RspBoard(){
+    const { usrId, accessToken } = useSelector(state => ({
+        usrId: state.login.usrId,
+        accessToken: state.login.token == null ? "" : state.login.token.accessToken
+    }));
+
     const cardDisplay = useRef();
     const cardBack = useRef();
     const cardForward = useRef();
@@ -87,8 +93,10 @@ function RspBoard(){
             <div className="header-padding">
                 <ProfileAvatar
                     name={board.usrId}
+                    authorization={[usrId, accessToken]}
                     labeled={true}
-                    btnType={0}
+                    btnType={usrId === board.usrId ? 1 : 0}
+                    boardId={boardId}
                 />
             </div>
             <section className="board">

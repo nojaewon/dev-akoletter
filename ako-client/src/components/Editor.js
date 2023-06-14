@@ -40,8 +40,8 @@ window.store = store;
 for(let i=0; i<COUNT_CARDNEWS; i++){
   const page = store.addPage();
   page.set({
-    width: 500,
-    height: 500
+    width: 1000,
+    height: 1000
   })
 
   page.addElement({
@@ -50,7 +50,7 @@ for(let i=0; i<COUNT_CARDNEWS; i++){
     y: 100,
     x: 0,
     width: 500,
-    fontSize: 50,
+    fontSize: 20,
   })
 }
 
