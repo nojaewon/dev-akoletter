@@ -18,10 +18,21 @@ import {List} from 'antd';
 import { dragX } from '../commonJS/event.js';
 import api from '../commonJS/api.js';
 
+function getCardWidth(){
+    if (window.innerWidth <= 300){
+        return 260
+    }
+    else if (window.innerWidth <= 380){
+        return 300
+    } 
+
+    return 375
+}
+
 const CARTEOGRY = ['전체', '정치', '경제', '세계', '테크', '노동', '환경', '인권', '문화', '라이프'];
-const CARD_WIDTH = 375;
-const CARD_COUNT = 3;
-const DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
+let CARD_WIDTH = getCardWidth();
+let CARD_COUNT = 3;
+let DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
 
 function RspBoard(){
     const { usrId, accessToken } = useSelector(state => ({
@@ -45,24 +56,28 @@ function RspBoard(){
     });
     let left = 0;
 
-    const moveBack = ()=>{
-        if(left > 0){
-            left -= CARD_WIDTH;
-            cardDisplay.current.style.left = -1* left + 'px';
-        }
-    }
-
-    const moveForward = ()=>{
-        if(left < DISPLAY_WIDTH - CARD_WIDTH){
-            left += CARD_WIDTH;
-            cardDisplay.current.style.left = -1 * left + 'px';
-        }
-    }
-
     useEffect(()=>{
         // 카드 디스플레이 길이 조정
+        CARD_WIDTH = getCardWidth();
+        CARD_COUNT = 3;
+        DISPLAY_WIDTH = CARD_WIDTH * CARD_COUNT;
+
         cardDisplay.current.style.width = `${DISPLAY_WIDTH}px`;
         cardDisplay.current.style.left = left + 'px';
+
+        const moveBack = ()=>{
+            if(left > 0){
+                left -= CARD_WIDTH;
+                cardDisplay.current.style.left = -1* left + 'px';
+            }
+        }
+    
+        const moveForward = ()=>{
+            if(left < DISPLAY_WIDTH - CARD_WIDTH){
+                left += CARD_WIDTH;
+                cardDisplay.current.style.left = -1 * left + 'px';
+            }
+        }
 
         // 카드 back, forward 버튼 이벤트 등록
         cardBack.current.addEventListener('click', moveBack);
@@ -139,7 +154,11 @@ function RspBoard(){
                         header={<div>이 뉴스레터는 아래의 뉴스들을 참고했습니다.</div>}
                         bordered
                         dataSource={board.urlList && board.urlList.split(", ")}
-                        renderItem={(item) => <List.Item><a href={item} target='_blank'>{item}</a></List.Item>}
+                        renderItem={(item) => <List.Item><a style={{
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis"}}
+                         href={item} target='_blank'>{item}</a></List.Item>}
                     />
                 </div>
 

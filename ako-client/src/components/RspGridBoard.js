@@ -58,7 +58,7 @@ function RspGridBoard(prop){
 
         for(let i=0; i<leftCount; i++){
             contentsCardList.push(
-                <Link key={contents.length * 1000 + i} onClick={(e)=>{
+                <Link style={{background: "none"}} key={contents.length * 1000 + i} onClick={(e)=>{
                     e.preventDefault();
                 }} className="card">
 
