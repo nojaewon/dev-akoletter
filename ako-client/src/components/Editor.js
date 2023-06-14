@@ -119,13 +119,14 @@ export const Editor = (props) => {
 
       return (
         <div style={{height: '100%', overflow:'scroll'}}>
+          <h1 style={{lineHeight: '50px', fontSize: '24px'}}><i>{props.formData.title}</i></h1>
           <h2 style={{lineHeight: '25px'}}><b>3줄 요약</b></h2> 
           <hr style={{ margin: "10px 0"}}/>
           <p>
             {inputClipBoard}
           </p>
           <br /> 
-          <h2 style={{lineHeight: '35px'}}><b>{props.formData.title}</b></h2>
+          <h2 style={{lineHeight: '35px'}}><b>뉴스 원문</b></h2>
           <hr style={{ margin: "10px 0"}}/>
           <p>
           {props.formData.content}
@@ -198,7 +199,7 @@ export const Editor = (props) => {
   };
 
   return (
-    <div className='edit-container'>
+    <div className='edit-container' style={{zIndex: 1005}}>
       {contextHolder}
       <PolotnoContainer className="polotno-app-container" style={{width: '100vw', height: '100vh'}}>
           <SidePanelWrap style={{ }}>

@@ -18,7 +18,7 @@ function StepsContainer({stage}){
     
 
     return (
-        <div className='steps-container'>
+        <div className='steps-container' style={{paddingTop: '20px'}}>
             <Steps
                 direction={"vertical"}
                 size='large'

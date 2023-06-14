@@ -8,7 +8,7 @@ import StepsContainer from '../containers/StepContainer.js';
 
 // pages
 import EditStep1 from './EditStep1.js';
-import EditStep2 from './EditStep2.js';
+// import EditStep2 from './EditStep2.js';
 
 // style
 import '../css/RspEdit.css';
@@ -32,7 +32,7 @@ function RspEdit(){
             <div className='box header-padding'>
                 {stage === 0 && <StepsContainer stage={stage} />}
                 {stage === 0 && <EditStep1 setStage={setStage} formData={formData} setFormData={setFormData} />}
-                {stage === 1 && <Editor formData={formData} />}
+                {stage === 1 && <Editor style={{position: 'fixed', top: '100px'}} formData={formData} />}
             </div>
             {stage !== 1 && <Footer/>}
         </div>

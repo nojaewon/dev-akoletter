@@ -91,7 +91,7 @@ function EditStep1(props){
                 <p>3. 글 작성에 사용된 자료의 출처를 출처란에 URL 형식으로 적어주세요.</p>
             </Drawer>
 
-            <h2><Tooltip title="요약 서비스에 대해 자세히 알고싶으시면 클릭해보세요!" open={true}>
+            <h2 style={{paddingTop: '30px'}}><Tooltip title="요약 서비스에 대해 자세히 알고싶으시면 클릭해보세요!" open={true}>
                 <a href="/" className='guideline-link' onClick={(e)=>{
                 e.preventDefault();
                 setOpen(true);    
