@@ -38,7 +38,8 @@ const router = createBrowserRouter([
   },
   {
     path: '/post/postdetail/:id',
-    element: <RspBoard />
+    element: <RspBoard />,
+    errorElement: <Page404 />
   },
   {
     path: '/signup',

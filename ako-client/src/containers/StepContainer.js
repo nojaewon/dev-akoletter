@@ -50,7 +50,7 @@ function StepsContainer({stage}){
                 ]}
             />
             <h2 style={{color: 'red', fontSize: '20px', margin: '20px 0'}}>주의사항!</h2>
-            <ol style={{color: 'red', lineHeight: '25px'}}>
+            <ol style={{color: 'red', lineHeight: '25px', listStyle: 'none'}}>
                 <li>1. 요약 원문의 수가 2000자 이상인 경우 요약이 원할합니다.</li>
                 <li>2. 이모티콘 및 특수문자의 사용은 자제해주세요 <br /> ex. %, △, •, 😂...</li>
                 <li>3. 다른 사람의 글을 표절하면 안돼요!</li>

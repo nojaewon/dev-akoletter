@@ -17,7 +17,7 @@ function ButtonGroup(props){
 
     const buttons = targetList.map((btn_title, idx)=>
         <button onClick={()=>{
-            api.getPostList(`${idx==0 ? 'all' : idx}`, 12).then(res=>props.callBack(res.data))
+            props.setPost([idx, 12]);
         }} key={idx} className='b pen'>{btn_title}</button>
     )
     

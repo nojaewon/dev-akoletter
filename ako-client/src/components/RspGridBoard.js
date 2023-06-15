@@ -13,7 +13,7 @@ import api from '../commonJS/api.js';
 
 function RspGridBoard(prop){
     const [contents, setContents] = useState([]);
-    const [size, setSize] = useState(12);
+    const [post, setPost] = useState([0, 12])
     const CARTEOGRY = ['전체', '정치', '경제', '세계', '테크', '노동', '환경', '인권', '문화', '라이프'];
 
     const { usrNm } = useSelector(state => ({
@@ -21,9 +21,12 @@ function RspGridBoard(prop){
     }));
 
     useEffect(()=>{
-        api.getPostList("all", size)
-        .then(res=>setContents(res.data))
-    },[])
+        api.getPostList(`${post[0]==0 ? 'all' : post[0]}`, post[1]).then(res=>{
+            setContents(res.data)
+        })
+    },post)
+
+    
 
     useEffect(()=>{        
         return ()=>{
@@ -38,7 +41,7 @@ function RspGridBoard(prop){
     })
 
     const postlist = ()=>{ // 0 (0, 1) (0, 1, 2) (0, 1, 2, 3)
-        let leftCount = size - contents.length;
+        let leftCount = post[1] - contents.length;
         
         const contentsCardList = contents.map((post)=>{
             return (
@@ -73,15 +76,13 @@ function RspGridBoard(prop){
 
     return (
         <section className={`grid-board ${ usrNm && "header-padding"}`}>
-            <ButtonGroup target={CARTEOGRY} callBack={setContents}/>
+            <ButtonGroup target={CARTEOGRY} setPost={setPost}/>
             <div className="box">
                 {postlist()}
             </div>
             <Space style={{width: '100%', justifyContent: "center", marginTop: '25px'}}>
                 <Button onClick={()=>{
-                    setSize(size+12)
-                    api.getPostList("all", size)
-                    .then(res=>setContents(res.data))
+                    setPost([post[0], post[1]+12])
                 }} size="large" style={{padding: "0 50px"}}>더보기</Button>
             </Space>
         </section>
